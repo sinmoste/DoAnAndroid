@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="164dp"
+        android:layout_height="132dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="124dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/presence_busy"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/txtTenNhanVat"
+        android:layout_width="96dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="12dp"
+        android:autoText="false"
+        android:text="@string/tennhanvat"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#BE1A0E"
+        android:textColorLink="#00C72727"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/txtCredit"
+        android:layout_width="74dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/imgKimCuong"
+        app:layout_constraintTop_toBottomOf="@+id/txtTenNhanVat" />
+
+    <ImageView
+        android:id="@+id/imgKimCuong"
+        android:layout_width="23dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTenNhanVat"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <Button
+        android:id="@+id/btnTroChoiMoi"
+        android:layout_width="167dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#1FE0E0"
+        android:text="Trò Chơi Mới"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCredit" />
+
+    <Button
+        android:id="@+id/btnLichSuChoi"
+        android:layout_width="167dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#FF1564"
+        android:text="Lịch Sử Chơi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTroChoiMoi" />
+
+    <Button
+        android:id="@+id/btnQLTK"
+        android:layout_width="167dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#D60FF8"
+        android:text="Quản Lý Tài Khoản"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLichSuChoi" />
+
+    <Button
+        android:id="@+id/btnBXH"
+        android:layout_width="167dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#85891CCC"
+        android:text="Bảng Xếp Hạng"
+
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnQLTK" />
+
+    <Button
+        android:id="@+id/btnMuaCredit"
+        android:layout_width="167dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="12dp"
+
+
+        android:backgroundTint="#CEE20D"
+        android:text="Mua Credit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBXH" />
+</androidx.constraintlayout.widget.ConstraintLayout>
