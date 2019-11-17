@@ -9,6 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Registeraccount"></activity>
+        <activity android:name=".Manageraccount" />
+        <activity android:name=".Forgetpassword" />
+        <activity android:name=".Answerquestion" />
+        <activity android:name=".Question" />
+        <activity android:name=".Rank" />
+        <activity android:name=".History" />
+        <activity android:name=".Credit" />
+        <activity android:name=".Login" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
