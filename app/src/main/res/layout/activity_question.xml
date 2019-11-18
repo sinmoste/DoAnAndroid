@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_a"
         android:layout_width="172dp"
         android:layout_height="48dp"
         android:text="Khoa Học Kỹ Thuật"
@@ -15,7 +15,7 @@
         tools:layout_editor_absoluteY="282dp" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btn_c"
         android:layout_width="172dp"
         android:layout_height="43dp"
         android:text="Địa Lý"
@@ -23,7 +23,7 @@
         tools:layout_editor_absoluteY="400dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtDiem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Điểm "
@@ -31,7 +31,7 @@
         tools:layout_editor_absoluteY="77dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txt_Cauhoi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Câu hỏi"
@@ -39,7 +39,7 @@
         tools:layout_editor_absoluteY="123dp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/txt_linhvuc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chọn Lĩnh Vực"
@@ -47,7 +47,7 @@
         tools:layout_editor_absoluteY="250dp" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btn_d"
         android:layout_width="173dp"
         android:layout_height="46dp"
         android:text="Thiên Văn Học"
@@ -63,7 +63,7 @@
         tools:layout_editor_absoluteY="142dp" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_b"
         android:layout_width="171dp"
         android:layout_height="44dp"
         android:text="Văn Học"

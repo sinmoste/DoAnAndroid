@@ -14,11 +14,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Cauhoi"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtDiem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
@@ -27,65 +27,67 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="175dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="121dp"
-        android:layout_marginTop="15dp"
-        android:text="A.dap an 1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="174dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="121dp"
-        android:layout_marginTop="15dp"
-        android:text="C.dap an "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="175dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="121dp"
-        android:layout_marginTop="15dp"
-        android:text="B.dap an 2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
-
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/txt_linhvuc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="24dp"
         android:text="Chọn Lĩnh Vực"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btn_a"
+        android:layout_width="175dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="15dp"
+        android:text="Phương Án A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_linhvuc" />
+
+    <Button
+        android:id="@+id/btn_b"
+        android:layout_width="175dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="15dp"
+        android:text="Phương Án B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_a" />
+
+    <Button
+        android:id="@+id/btn_c"
+        android:layout_width="174dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="15dp"
+        android:text="Phương Án C"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_b" />
+
+    <Button
+        android:id="@+id/btn_d"
         android:layout_width="175dp"
         android:layout_height="47dp"
         android:layout_marginStart="121dp"
         android:layout_marginTop="15dp"
-        android:text="D.dap an 1"
+        android:text="Phương Án D"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_c" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txt_Cauhoi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="181dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="32dp"
         android:text="Câu hỏi"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDiem" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -95,7 +97,7 @@
         android:layout_marginStart="191dp"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_d" />
 
     <Button
         android:id="@+id/button10"
@@ -112,7 +114,7 @@
         android:layout_width="45dp"
         android:layout_height="41dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="616dp"
+        android:layout_marginTop="632dp"
         android:background="@mipmap/ic_launcher"
         app:layout_constraintStart_toEndOf="@+id/button11"
         app:layout_constraintTop_toTopOf="parent" />
@@ -125,15 +127,16 @@
         android:layout_marginTop="94dp"
         android:text="50:50"
         app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_d" />
 
     <Button
         android:id="@+id/button8"
         android:layout_width="64dp"
         android:layout_height="41dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="612dp"
-        android:background="@mipmap/ic_launcher"
+        android:layout_marginTop="632dp"
+        android:onClick="Run"
+        android:text="Next"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -145,6 +148,6 @@
         android:layout_marginTop="90dp"
         android:background="@mipmap/ic_launcher"
         app:layout_constraintStart_toEndOf="@+id/button10"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_d" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
