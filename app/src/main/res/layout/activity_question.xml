@@ -5,71 +5,145 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_a"
-        android:layout_width="172dp"
-        android:layout_height="48dp"
-        android:text="Khoa Học Kỹ Thuật"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="282dp" />
-
-    <Button
-        android:id="@+id/btn_c"
-        android:layout_width="172dp"
-        android:layout_height="43dp"
-        android:text="Địa Lý"
-        tools:layout_editor_absoluteX="119dp"
-        tools:layout_editor_absoluteY="400dp" />
 
     <TextView
         android:id="@+id/txtDiem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Điểm "
-        tools:layout_editor_absoluteX="181dp"
-        tools:layout_editor_absoluteY="77dp" />
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="150dp"
+        android:text="Điểm : 0"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_Cauhoi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="150dp"
         android:text="Câu hỏi"
-        tools:layout_editor_absoluteX="181dp"
-        tools:layout_editor_absoluteY="123dp" />
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDiem" />
 
     <TextView
         android:id="@+id/txt_linhvuc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="108dp"
         android:text="Chọn Lĩnh Vực"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="250dp" />
-
-    <Button
-        android:id="@+id/btn_d"
-        android:layout_width="173dp"
-        android:layout_height="46dp"
-        android:text="Thiên Văn Học"
-        tools:layout_editor_absoluteX="119dp"
-        tools:layout_editor_absoluteY="454dp" />
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="110dp"
         android:layout_height="98dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="142dp" />
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Cauhoi"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <Button
-        android:id="@+id/btn_b"
-        android:layout_width="171dp"
-        android:layout_height="44dp"
-        android:text="Văn Học"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.496"
-        tools:layout_editor_absoluteX="119dp" />
+        android:id="@+id/btn_linhvuc1"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/buttonshape"
+        android:backgroundTint="@color/design_default_color_primary_dark"
+        android:shadowColor="#2B18A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Khoa học kỹ thuật"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_linhvuc" />
+
+    <Button
+        android:id="@+id/btn_linhvuc2"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/buttonshape"
+        android:backgroundTint="@color/design_default_color_primary_dark"
+        android:shadowColor="#2B18A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Văn hóa - Xã hội"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_linhvuc1" />
+
+    <Button
+        android:id="@+id/btn_linhvuc3"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/buttonshape"
+        android:backgroundTint="@color/design_default_color_primary_dark"
+        android:shadowColor="#2B18A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Lịch sử - Địa Lí"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_linhvuc2" />
+
+    <Button
+        android:id="@+id/btn_linhvuc4"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/buttonshape"
+        android:backgroundTint="@color/design_default_color_primary_dark"
+        android:shadowColor="#2B18A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Du lịch - Thể thao"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_linhvuc3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
