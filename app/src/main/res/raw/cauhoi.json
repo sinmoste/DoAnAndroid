@@ -1,0 +1,44 @@
+{
+  "cauHoi": [
+    {
+      "ID": 1,
+      "Noidung": "Gần mực thì đen, gần đèn thì...",
+      "PhuonganA": "Sáng",
+      "PhuonganB": "Trưa",
+      "PhuonganC": "Chiều",
+      "PhuonganD": "Tối"
+    },
+    {
+      "ID": 2,
+      "Noidung": "Từ nào sau đây khác nghĩa với 3 từ còn lại ?",
+      "PhuonganA": "Sinh Nở",
+      "PhuonganB": "Sinh Sôi",
+      "PhuonganC": "Sinh Trưởng",
+      "PhuonganD": "Sinh Viênaaaaaaaaaaaaa"
+    },
+    {
+      "ID": 3,
+      "Noidung": "Mưa ngâu là vào khoảng tháng mấy trong năm ?",
+      "PhuonganA": "Tháng 1 âm lịch",
+      "PhuonganB": "Tháng 3 âm lịch",
+      "PhuonganC": "Tháng 7 âm lịch",
+      "PhuonganD": "Tháng 11 âm lịch"
+    },
+    {
+      "ID": 4,
+      "Noidung": "Pha màu đỏ với màu xanh lam, ta được màu nào sau đây?",
+      "PhuonganA": "Màu Nâu",
+      "PhuonganB": "Màu Tím",
+      "PhuonganC": "Màu Hồng",
+      "PhuonganD": "Màu Đen"
+    },
+    {
+      "ID": 5,
+      "Noidung": "Đồng Đăng có phố Kỳ Lừa, có nàng Tô Thị, có chùa...?",
+      "PhuonganA": "Thiên Mụ",
+      "PhuonganB": "Phật Tích",
+      "PhuonganC": "Tam Thanh",
+      "PhuonganD": "Một Cột"
+    }
+  ]
+}
