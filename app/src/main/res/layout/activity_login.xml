@@ -4,16 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/button19"
+        android:id="@+id/btn_dangky"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/buttonshape"
+        android:onClick="Dangky"
         android:shadowColor="#2B18A8"
         android:shadowDx="0"
         android:shadowDy="0"
@@ -24,16 +26,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button18" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_quenmk" />
 
     <Button
-        android:id="@+id/button18"
+        android:id="@+id/btn_quenmk"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/buttonshape"
+        android:onClick="Quenmatkhau"
         android:shadowColor="#2B18A8"
         android:shadowDx="0"
         android:shadowDy="0"
@@ -44,29 +47,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_dangnhap" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="250dp"
-        android:layout_height="156dp"
+        android:layout_width="326dp"
+        android:layout_height="244dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.583"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ironman" />
+        app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_dangnhap"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/buttonshape"
+        android:onClick="Dangnhap"
         android:shadowColor="#2B18A8"
         android:shadowDx="0"
         android:shadowDy="0"
@@ -85,16 +89,24 @@
         android:layout_width="300dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@android:color/holo_orange_light"
+        app:boxStrokeColor="@android:color/holo_orange_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_tendangnhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tên Đăng Nhập" />
+            android:hint="Tên Đăng Nhập"
+            android:textColor="@android:color/holo_orange_light"
+            android:textColorHighlight="@android:color/holo_orange_light"
+            android:textColorHint="@android:color/holo_orange_light"
+            android:textColorLink="@android:color/holo_orange_light"
+            android:textSize="24sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -105,15 +117,23 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@android:color/holo_orange_light"
+        app:boxStrokeColor="@android:color/holo_orange_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInput_tendangnhap">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_matkhau"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mật Khẩu" />
+            android:hint="Mật Khẩu"
+            android:inputType="textPassword"
+            android:textColor="@android:color/holo_orange_light"
+            android:textColorHint="@android:color/holo_orange_light"
+            android:textColorLink="@android:color/holo_orange_light"
+            android:textSize="24sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!--    pass-->
