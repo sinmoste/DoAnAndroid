@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/home_background"
     tools:context=".MainActivity">
 
     <ImageView
@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/presence_busy" />
+        app:srcCompat="@drawable/ic_no_avatar" />
 
     <TextView
         android:id="@+id/txtTenNhanVat"
@@ -49,13 +49,12 @@
 
     <ImageView
         android:id="@+id/imgKimCuong"
-        android:layout_width="23dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="124dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTenNhanVat"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        app:srcCompat="@drawable/diamondcredit" />
 
     <Button
         android:id="@+id/btnTroChoiMoi"
@@ -65,6 +64,7 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/buttonmanhinhchinh"
+        android:onClick="Trochoimoi"
         android:text="Trò Chơi Mới"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
@@ -81,6 +81,7 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/buttonmanhinhchinh"
         android:backgroundTint="#FF1564"
+        android:onClick="Lichsuchoi"
         android:text="Lịch Sử Chơi"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
@@ -97,6 +98,7 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/buttonmanhinhchinh"
         android:backgroundTint="@android:color/holo_green_dark"
+        android:onClick="Quanlitaikhoan"
         android:text="Quản Lý Tài Khoản"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
@@ -113,6 +115,7 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/buttonmanhinhchinh"
         android:backgroundTint="@android:color/holo_purple"
+        android:onClick="Bangxephang"
         android:text="Bảng Xếp Hạng"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
@@ -129,6 +132,7 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/buttonmanhinhchinh"
         android:backgroundTint="@android:color/holo_orange_dark"
+        android:onClick="Muacredit"
         android:text="Mua Credit"
         android:textColor="#FFFFFF"
         android:textSize="25sp"

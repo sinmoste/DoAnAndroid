@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/home_background"
     android:orientation="vertical">
 
     <ImageView
@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@drawable/ic_no_avatar" />
 
     <TextView
         android:id="@+id/textView"
@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:text="Đổi ảnh đại diện"
+        android:textColor="@android:color/holo_orange_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
@@ -37,16 +38,19 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="16dp"
         android:textColorHint="@android:color/holo_orange_light"
+        app:boxStrokeColor="@android:color/holo_orange_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_tendangnhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tên Đăng Nhập"
-            android:textColor="@android:color/holo_orange_light" />
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="22sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -57,14 +61,19 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@android:color/holo_orange_light"
+        app:boxStrokeColor="@android:color/holo_orange_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInput_tendangnhap">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email" />
+            android:hint="Email"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="22sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -75,14 +84,19 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@android:color/holo_orange_light"
+        app:boxStrokeColor="@android:color/holo_orange_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInput_email">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_doimatkhau"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Đổi Mật Khẩu" />
+            android:hint="Đổi Mật Khẩu"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="22sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -93,14 +107,19 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@android:color/holo_orange_light"
+        app:boxStrokeColor="@android:color/holo_orange_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInput_doimatkhau">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_xacnhanmatkhau"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Xác Nhận Mật Khẩu" />
+            android:hint="Xác Nhận Mật Khẩu"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="22sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -110,7 +129,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/buttonshape"
+        android:background="@drawable/buttonradius"
+        android:backgroundTint="@android:color/holo_orange_dark"
         android:shadowColor="#2B18A8"
         android:shadowDx="0"
         android:shadowDy="0"

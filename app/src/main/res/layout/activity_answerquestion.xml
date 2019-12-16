@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/home_background"
     android:orientation="vertical">
 
     <ImageView
@@ -17,6 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_Cauhoi"
         app:srcCompat="@mipmap/ic_launcher" />
+
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="30dp"
@@ -26,6 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/diamond" />
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="100dp"
@@ -39,6 +42,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="226dp"

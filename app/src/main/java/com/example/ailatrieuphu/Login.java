@@ -32,7 +32,7 @@ public class Login extends AppCompatActivity {
 
 
     }
-    public void Dangky(View view){
+    public void buttonDangky(View view){
         Intent dkintent = new Intent(Login.this,Registeraccount.class);
         startActivity(dkintent);
     }
