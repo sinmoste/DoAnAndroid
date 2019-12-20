@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/home_background"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="164dp"
         android:layout_height="132dp"
-        android:layout_marginStart="123dp"
+        android:layout_marginStart="124dp"
         android:layout_marginTop="72dp"
         android:layout_marginEnd="124dp"
+        android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/presence_busy"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/ic_no_avatar" />
 
     <TextView
         android:id="@+id/txtTenNhanVat"
@@ -29,7 +30,7 @@
         android:text="@string/tennhanvat"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="#BE1A0E"
+        android:textColor="@android:color/holo_orange_light"
         android:textColorLink="#00C72727"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -48,70 +49,94 @@
 
     <ImageView
         android:id="@+id/imgKimCuong"
-        android:layout_width="23dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="124dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTenNhanVat"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        app:srcCompat="@drawable/diamondcredit" />
 
     <Button
         android:id="@+id/btnTroChoiMoi"
-        android:layout_width="167dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="123dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#1FE0E0"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/buttonmanhinhchinh"
+        android:onClick="Trochoimoi"
         android:text="Trò Chơi Mới"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCredit" />
 
     <Button
         android:id="@+id/btnLichSuChoi"
-        android:layout_width="167dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="123dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/buttonmanhinhchinh"
         android:backgroundTint="#FF1564"
+        android:onClick="Lichsuchoi"
         android:text="Lịch Sử Chơi"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnTroChoiMoi" />
 
     <Button
         android:id="@+id/btnQLTK"
-        android:layout_width="167dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="123dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#D60FF8"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/buttonmanhinhchinh"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:onClick="Quanlitaikhoan"
         android:text="Quản Lý Tài Khoản"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLichSuChoi" />
 
     <Button
         android:id="@+id/btnBXH"
-        android:layout_width="167dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="123dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#85891CCC"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/buttonmanhinhchinh"
+        android:backgroundTint="@android:color/holo_purple"
+        android:onClick="Bangxephang"
         android:text="Bảng Xếp Hạng"
-
-
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnQLTK" />
 
     <Button
         android:id="@+id/btnMuaCredit"
-        android:layout_width="167dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="123dp"
-        android:layout_marginTop="12dp"
-
-
-        android:backgroundTint="#CEE20D"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/buttonmanhinhchinh"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        android:onClick="Muacredit"
         android:text="Mua Credit"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnBXH" />
 </androidx.constraintlayout.widget.ConstraintLayout>
