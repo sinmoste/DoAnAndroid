@@ -3,27 +3,19 @@ package com.example.ailatrieuphu;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.ailatrieuphu.Class.CauHoi;
-import com.example.ailatrieuphu.Class.CustomSharedpreferences;
+import com.example.ailatrieuphu.Class.Custom.CustomDialog;
+import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
 import com.example.ailatrieuphu.Class.URLl;
 
 import org.json.JSONArray;
@@ -137,37 +129,21 @@ public class Answerquestion extends AppCompatActivity {
             if(life!=0) {
                 loadQuestion();
             }else{
-                mDialog("Hết mạng rồi","Số điểm của bạn là: "+diem+"\n"+"Nhấn OK để kết thúc");
+                Map<String,String> map = new HashMap<>();
+                map.put("nguoi_choi_id","2");
+                map.put("so_cau","2");
+                map.put("diem","2");
+                new CustomSharedpreferences(this).addShared("LuotChoi",map);
+                new CustomDialog(this).showDialogandPostAPI("Hết sinh lực",
+                        "Số điểm của bạn là: "+diem+"\n"+"Nhấn OK để kết thúc",map,URLl.url_them_luot_choi);
             }
         }catch (Exception e){
             Toast.makeText(this, "Hết câu!", Toast.LENGTH_SHORT).show();
         }
     }//Xu ly diem, qua cau khac
 
+    public void ThemChiTietLuotChoi(){
 
-
-    public void mDialog(String title,String message){
-        new AlertDialog.Builder(this)
-                .setTitle(title)
-                .setMessage(message)
-
-                // Specifying a listener allows you to take an action before dismissing the dialog.
-                // The dialog is automatically dismissed when a dialog button is clicked.
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        //Them luot choi
-                        Map<String,String> map = new HashMap<>();
-                        map.put("nguoi_choi_id","2");
-                        map.put("so_cau","2");
-                        map.put("diem","2");
-                        ReadAPI.PostAPI(Answerquestion.this,  map, URLl.url_them_luot_choi);
-                        finish();
-                    }
-                })
-                // A null listener allows the button to dismiss the dialog and take no further action.
-                //.setNegativeButton(android.R.string.no, null)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
     }
 
 //    private void DangKy(final int pID, final int pList, final int score)
