@@ -12,8 +12,8 @@ public class Login extends AppCompatActivity {
     TextInputEditText tit_tk;
     TextInputEditText tit_mk;
 
-    //String urlduongdan="http://192.168.153.2:8080/GameLaravel/public/api/apinguoichoi";
-    String urlduongdan="http://192.168.1.253/GameLaravel/public/api/apinguoichoi";
+    String urlduongdan="http://192.168.153.2:8080/GameLaravel/public/api/apinguoichoi";
+   // String urlduongdan="http://192.168.1.253/GameLaravel/public/api/apinguoichoi";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

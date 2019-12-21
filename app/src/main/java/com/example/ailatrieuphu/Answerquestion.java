@@ -24,7 +24,8 @@ import java.util.ArrayList;
 
 public class Answerquestion extends AppCompatActivity {
 
-    String url_cau_hoi="http://192.168.1.253/GameLaravel/public/api/cau-hoi?linh_vuc_id=";
+   // String url_cau_hoi="http://192.168.1.253/GameLaravel/public/api/cau-hoi?linh_vuc_id=";
+    String url_cau_hoi="http://10.0.3.2:8000/GameLaravel/public/api/cau-hoi?linh_vuc_id=";
     TextView txtDiem,txtNoiDung,txtThuTuCH;
     Button btnA,btnB,btnC,btnD;
     Button btn50,btnKhanGia,btnQuaCauHoi,btnMuaCredit,btnDoiCauHoi;
