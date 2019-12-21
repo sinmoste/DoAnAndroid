@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/textView5"
         android:layout_width="226dp"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:background="@android:color/holo_blue_dark"
@@ -22,7 +22,7 @@
     <TextView
         android:id="@+id/textView6"
         android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:background="@android:color/holo_orange_dark"
@@ -35,23 +35,23 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/diamond" />
+        app:srcCompat="@drawable/diamondgold2" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="20dp"
         android:text="Bảng Xếp Hạng"
         android:textColor="@color/colorAccent"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -59,9 +59,11 @@
     <LinearLayout
         android:layout_width="413dp"
         android:layout_height="627dp"
+        android:layout_marginTop="11dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="104dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
 
         <LinearLayout
             android:layout_width="match_parent"

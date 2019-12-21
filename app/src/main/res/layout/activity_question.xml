@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/textView5"
         android:layout_width="226dp"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:background="@android:color/holo_blue_dark"
@@ -22,7 +22,7 @@
     <TextView
         android:id="@+id/textView6"
         android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:background="@android:color/holo_orange_dark"
@@ -35,13 +35,13 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/diamond" />
+        app:srcCompat="@drawable/diamondgold2" />
 
 
     <TextView
@@ -49,16 +49,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="150dp"
         android:text="Điểm : 0"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@android:color/holo_orange_light"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/txt_Cauhoi"
@@ -68,7 +68,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="150dp"
         android:text="Câu hỏi"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="?android:attr/colorAccent"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +83,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="108dp"
         android:text="Chọn Lĩnh Vực"
+        android:textColor="@color/colorAccent"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
