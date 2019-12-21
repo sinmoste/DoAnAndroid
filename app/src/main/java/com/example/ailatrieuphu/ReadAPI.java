@@ -1,5 +1,18 @@
 package com.example.ailatrieuphu;
 
+import android.content.Context;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,6 +20,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ReadAPI {
     public static String GetJSON(String duongdan){
@@ -46,6 +61,42 @@ public class ReadAPI {
             }
         }
         return stringBuilder.toString();
+    }
+
+    public static void PostAPI(Context context, final Map<String,String> mMap, String duongdan)
+    {
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, duongdan, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject=new JSONObject(response);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        })
+        {
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded; charset=UTF-8";
+            }
+            @Override
+            protected Map<String,String> getParams() throws AuthFailureError {
+                Map<String,String> params=mMap;
+                for(String key:mMap.keySet()){
+                    params.put( key,mMap.get(key));
+                }
+                return params;
+
+            }
+        };
+        RequestQueue requestQueue= Volley.newRequestQueue(context);
+
+        requestQueue.add(stringRequest);
     }
 }
 

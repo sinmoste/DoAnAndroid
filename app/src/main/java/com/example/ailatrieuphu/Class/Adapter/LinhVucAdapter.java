@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ailatrieuphu.Answerquestion;
 import com.example.ailatrieuphu.Class.CauHoiAsyncTask;
 import com.example.ailatrieuphu.Class.LinhVuc;
+import com.example.ailatrieuphu.Class.URLl;
 import com.example.ailatrieuphu.R;
 
 import java.util.ArrayList;
@@ -40,8 +41,7 @@ public class LinhVucAdapter extends RecyclerView.Adapter<LinhVucAdapter.ViewHold
         holder.btnLinhVuc.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                new CauHoiAsyncTask(context).execute("http://192.168.1.253/GameLaravel/public/api/cau-hoi?linh_vuc_id="
-                        + listLinhVuc.get(position).getId());
+                new CauHoiAsyncTask(context).execute(URLl.url_get_cau_hoi + listLinhVuc.get(position).getId());
             }
         });
     }

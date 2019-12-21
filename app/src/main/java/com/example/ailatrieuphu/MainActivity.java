@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.ailatrieuphu.Class.LinhVucAsyncTask;
+import com.example.ailatrieuphu.Class.URLl;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +27,6 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     String urlduongdan="http://10.0.3.2:8000/api/nguoi-choi1";
-    String url_linh_vuc="http://192.168.1.253/GameLaravel/public/api/linh-vuc";
     TextView tennc,credit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         LoadThongTin(tdn);
     }
     public void Trochoimoi(View view){
-        new LinhVucAsyncTask(this).execute(url_linh_vuc);
+        new LinhVucAsyncTask(this).execute(URLl.url_get_linh_vuc);
     }
     public void Lichsuchoi(View view){
         Intent intent = new Intent(MainActivity.this,History.class);
