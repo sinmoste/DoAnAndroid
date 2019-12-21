@@ -26,12 +26,14 @@
             android:id="@+id/imageView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             app:srcCompat="@drawable/ic_no_avatar" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tv_tendangnhap_tt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:text="Tên Đăng Nhập"
             android:textAlignment="viewStart"
             android:textColor="@android:color/holo_orange_light"
@@ -39,35 +41,39 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tv_email_tt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:text="Email"
             android:textColor="@android:color/holo_orange_light"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/tv_credit_tt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:text="Credit"
             android:textColor="@android:color/holo_orange_light"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_capnhat_tt"
             android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
+            android:layout_marginTop="70dp"
             android:layout_marginRight="70dp"
             android:background="@drawable/buttonradius"
             android:backgroundTint="@android:color/holo_green_light"
             android:onClick="doimk"
-            android:text="Đổi Mật Khẩu"
+            android:text="Cập nhật"
             android:textAlignment="center"
+            android:textColor="@android:color/background_light"
             android:textColorLink="@android:color/black"
-            android:textSize="24sp" />
+            android:textSize="30sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

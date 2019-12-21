@@ -155,14 +155,12 @@ public class Answerquestion extends AppCompatActivity {
                 // The dialog is automatically dismissed when a dialog button is clicked.
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        //Them luot choi
                         Map<String,String> map = new HashMap<>();
                         map.put("nguoi_choi_id","2");
                         map.put("so_cau","2");
                         map.put("diem","2");
                         ReadAPI.PostAPI(Answerquestion.this,  map, URLl.url_them_luot_choi);
-
-
-
                         finish();
                     }
                 })

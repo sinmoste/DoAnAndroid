@@ -25,6 +25,7 @@ public class Login extends AppCompatActivity {
         String tendn = tit_tk.getText().toString();
         String mk = tit_mk.getText().toString();
         GetAPINguoiChoi nguoiChoi = (GetAPINguoiChoi) new GetAPINguoiChoi(this,tendn,mk).execute(urlduongdan);
+
     }
     public void Quenmatkhau(View view){
         Intent qmkintent = new Intent(Login.this,Forgetpassword.class);
