@@ -8,23 +8,35 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.ailatrieuphu.Class.CauHoi;
+import com.example.ailatrieuphu.Class.CustomSharedpreferences;
+import com.example.ailatrieuphu.Class.URLl;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Answerquestion extends AppCompatActivity {
 
-    String url_cau_hoi="http://192.168.1.253/GameLaravel/public/api/cau-hoi?linh_vuc_id=";
+
     TextView txtDiem,txtNoiDung,txtThuTuCH;
     Button btnA,btnB,btnC,btnD;
     Button btn50,btnKhanGia,btnQuaCauHoi,btnMuaCredit,btnDoiCauHoi;
@@ -36,7 +48,7 @@ public class Answerquestion extends AppCompatActivity {
     ProgressBar mPg;
     SharedPreferences sharedPreferences;
 
-    public Answerquestion() { //nay~ t chua bo CauHoi vo VCS
+    public Answerquestion() {
         mCauHoi =  new ArrayList<>();
     }
 
@@ -60,6 +72,15 @@ public class Answerquestion extends AppCompatActivity {
         loadQuestion();
     }
 
+//    public void test(){
+////        Map<String, String> params=new HashMap<>();
+////        params.put("nguoi_choi_id", String.valueOf(1));
+////        params.put("so_cau", String.valueOf(1));
+////        params.put("diem", String.valueOf(1));
+////        new CustomSharedpreferences(this).addShared(sharedPreferences,"LuotChoi",params);
+////        String a = new CustomSharedpreferences(this).getShared(sharedPreferences,"LuotChoi","nguoi_choi_id");
+////        txtDiem.setText(a);
+////    }
 
     public void loadQuestion(){
         if (getJson(jsonString) && position < mCauHoi.size()) {
@@ -123,6 +144,7 @@ public class Answerquestion extends AppCompatActivity {
     }//Xu ly diem, qua cau khac
 
 
+
     public void mDialog(String title,String message){
         new AlertDialog.Builder(this)
                 .setTitle(title)
@@ -132,14 +154,62 @@ public class Answerquestion extends AppCompatActivity {
                 // The dialog is automatically dismissed when a dialog button is clicked.
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        Map<String,String> map = new HashMap<>();
+                        map.put("nguoi_choi_id","2");
+                        map.put("so_cau","2");
+                        map.put("diem","2");
+                        ReadAPI.PostAPI(Answerquestion.this,  map, URLl.url_them_luot_choi);
+
+
+
                         finish();
                     }
                 })
                 // A null listener allows the button to dismiss the dialog and take no further action.
-//                .setNegativeButton(android.R.string.no, null)
+                //.setNegativeButton(android.R.string.no, null)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }
+
+//    private void DangKy(final int pID, final int pList, final int score)
+//    {
+//        StringRequest stringRequest=new StringRequest(Request.Method.POST, URLl.url_them_luot_choi, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                try {
+//                    JSONObject jsonObject=new JSONObject(response);
+//                    Toast.makeText(getApplicationContext(),"Successfully",Toast.LENGTH_SHORT).show();
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                    Toast.makeText(getApplicationContext(),"Fao;ed"+e.toString(),Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Toast.makeText(getApplicationContext(),"API Failed"+error.toString(),Toast.LENGTH_SHORT).show();
+//            }
+//        })
+//        {
+//            @Override
+//            public String getBodyContentType() {
+//                return "application/x-www-form-urlencoded; charset=UTF-8";
+//            }
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> params=new HashMap<>();
+//                params.put("nguoi_choi_id", String.valueOf(pID));
+//                params.put("so_cau", String.valueOf(pList));
+//                params.put("diem", String.valueOf(score));
+//                return params;
+//
+//            }
+//        };
+//        RequestQueue requestQueue= Volley.newRequestQueue(this);
+//
+//        requestQueue.add(stringRequest);
+//    }
+
     public boolean getJson(String jsonString){
         try{
 
