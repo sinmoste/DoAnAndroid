@@ -26,6 +26,10 @@ public class CustomSharedpreferences {
         String a = mShared.getString(key,null);
         return a;
     }
+    public void deleteShared(String sharedname){
+        SharedPreferences mShared = context.getSharedPreferences(sharedname,0);
+        mShared.edit().clear().commit();
+    }
 
 
 

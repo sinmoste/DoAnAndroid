@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ailatrieuphu.Class.CauHoi;
+import com.example.ailatrieuphu.Class.Countdown;
 import com.example.ailatrieuphu.Class.Custom.CustomDialog;
 import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
 import com.example.ailatrieuphu.Class.URLl;
@@ -23,25 +24,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class Answerquestion extends AppCompatActivity {
 
 
-    TextView txtDiem,txtNoiDung,txtThuTuCH;
+    TextView txtDiem,txtNoiDung,txtThuTuCH,txtTime;
     Button btnA,btnB,btnC,btnD;
     Button btn50,btnKhanGia,btnQuaCauHoi,btnMuaCredit,btnDoiCauHoi;
    private ArrayList<CauHoi> mCauHoi;
     String jsonString,dap_an;
-    int position=0,diem=0,life=5;
-
-
+    int position=0,diem=0,life=5,socaudung=0;
+    private Countdown mCount;
     ProgressBar mPg;
-    SharedPreferences sharedPreferences;
 
+    ArrayList<Integer> mRandom;
     public Answerquestion() {
         mCauHoi =  new ArrayList<>();
+        mRandom = new ArrayList<>();
     }
 
     @Override
@@ -55,33 +58,27 @@ public class Answerquestion extends AppCompatActivity {
         txtDiem = findViewById(R.id.txtDiem);
         txtNoiDung = findViewById(R.id.txt_noidung);
         txtThuTuCH = findViewById(R.id.txt_Cauhoi);
-
+        mPg = findViewById(R.id.progressBar);
+        txtTime = findViewById(R.id.txtTime);
+        mPg.setMax(100);
         btnA= findViewById(R.id.btn_a);
         btnB= findViewById(R.id.btn_b);
         btnC= findViewById(R.id.btn_c);
         btnD= findViewById(R.id.btn_d);
-
+        if(getJson(jsonString))
+             RandomCauHoi();
+        new Countdown(this,mPg,txtTime,100).execute();
         loadQuestion();
     }
 
-//    public void test(){
-////        Map<String, String> params=new HashMap<>();
-////        params.put("nguoi_choi_id", String.valueOf(1));
-////        params.put("so_cau", String.valueOf(1));
-////        params.put("diem", String.valueOf(1));
-////        new CustomSharedpreferences(this).addShared(sharedPreferences,"LuotChoi",params);
-////        String a = new CustomSharedpreferences(this).getShared(sharedPreferences,"LuotChoi","nguoi_choi_id");
-////        txtDiem.setText(a);
-////    }
-
     public void loadQuestion(){
         if (getJson(jsonString) && position < mCauHoi.size()) {
-            txtNoiDung.setText(mCauHoi.get(position).getNoiDung());
-            btnA.setText(mCauHoi.get(position).getdA());
-            btnB.setText(mCauHoi.get(position).getdB());
-            btnC.setText(mCauHoi.get(position).getdC());
-            btnD.setText(mCauHoi.get(position).getdD());
-            dap_an=mCauHoi.get(position).getDapAn();
+            txtNoiDung.setText(mCauHoi.get(mRandom.get(position)).getNoiDung());
+            btnA.setText(mCauHoi.get(mRandom.get(position)).getdA());
+            btnB.setText(mCauHoi.get(mRandom.get(position)).getdB());
+            btnC.setText(mCauHoi.get(mRandom.get(position)).getdC());
+            btnD.setText(mCauHoi.get(mRandom.get(position)).getdD());
+            dap_an=mCauHoi.get(mRandom.get(position)).getDapAn();
             position++;
 
         } else {
@@ -124,26 +121,38 @@ public class Answerquestion extends AppCompatActivity {
         return false;
     } //Xu ly nut chon
     public  void Tieptuc(View view){
-        ChonDung(position,view);
+        mCount= (Countdown) new Countdown(this,mPg,txtTime,333).execute();
+        if(ChonDung(position,view))
+            socaudung++;
         try {
             if(life!=0) {
                 loadQuestion();
             }else{
                 Map<String,String> map = new HashMap<>();
-                map.put("nguoi_choi_id","2");
-                map.put("so_cau","2");
-                map.put("diem","2");
+                //map.put("nguoi_choi_id",new CustomSharedpreferences(this).getShared("NguoiChoi","id"));
+                map.put("nguoi_choi_id","1");
+                map.put("so_cau",Integer.toString(socaudung++));
+                map.put("diem",Integer.toString(diem));
                 new CustomSharedpreferences(this).addShared("LuotChoi",map);
-                new CustomDialog(this).showDialogandPostAPI("Hết sinh lực",
-                        "Số điểm của bạn là: "+diem+"\n"+"Nhấn OK để kết thúc",map,URLl.url_them_luot_choi);
+                new CustomDialog(Answerquestion.this).showDialogandPostAPI("Hết sinh lực",
+                        "Số điểm của bạn là: "+diem+"\n"+"Nhấn OK để kết thúc",
+                        map,
+                        URLl.url_them_luot_choi);
             }
         }catch (Exception e){
             Toast.makeText(this, "Hết câu!", Toast.LENGTH_SHORT).show();
         }
     }//Xu ly diem, qua cau khac
 
-    public void ThemChiTietLuotChoi(){
+    public void Ramdom5050(){
 
+    }
+
+    public void RandomCauHoi(){
+        for(int i=0;i<mCauHoi.size();i++){
+            mRandom.add(i);
+        }
+        Collections.shuffle(mRandom);
     }
 
 //    private void DangKy(final int pID, final int pList, final int score)

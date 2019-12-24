@@ -1,6 +1,7 @@
 package com.example.ailatrieuphu;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -9,6 +10,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.ailatrieuphu.Class.Custom.CustomDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -63,9 +65,9 @@ public class ReadAPI {
         return stringBuilder.toString();
     }
 
-    public static void PostAPI(Context context, final Map<String,String> mMap, String duongdan)
+    public static void PostAPI(final Context context, final Map<String,String> mMap, String duongdan)
     {
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, duongdan, new Response.Listener<String>() {
+       StringRequest stringRequest=new StringRequest(Request.Method.POST, duongdan, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -77,6 +79,7 @@ public class ReadAPI {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+
             }
         })
         {
@@ -86,16 +89,15 @@ public class ReadAPI {
             }
             @Override
             protected Map<String,String> getParams() throws AuthFailureError {
-                Map<String,String> params=mMap;
-                for(String key:mMap.keySet()){
-                    params.put( key,mMap.get(key));
-                }
-                return params;
+//                Map<String,String> params=mMap;
+//                for(String key:mMap.keySet()){
+//                    params.put( key,mMap.get(key));
+//                }
+                return mMap;
 
             }
         };
         RequestQueue requestQueue= Volley.newRequestQueue(context);
-
         requestQueue.add(stringRequest);
     }
 }

@@ -160,15 +160,19 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="10dp"
+        android:progressDrawable="@drawable/circle_progressbar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_d" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_d"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="490dp"/>
 
     <Button
         android:id="@+id/button10"
@@ -224,5 +228,18 @@
         app:layout_constraintEnd_toStartOf="@+id/btnGoiDien"
         app:layout_constraintStart_toEndOf="@+id/btn5050"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintTop_toTopOf="@+id/progressBar" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
