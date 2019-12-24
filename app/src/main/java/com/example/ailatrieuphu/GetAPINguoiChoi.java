@@ -2,19 +2,24 @@ package com.example.ailatrieuphu;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 
+import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GetAPINguoiChoi extends AsyncTask<String,String,String> {
     private Context context;
     String ten_dap_nhap;
     String mat_khau;
     String urlduongdan;
+    SharedPreferences mshared;
     ArrayList<NguoiChoi> nguoiChois;
     public GetAPINguoiChoi(Context context, String ten_dap_nhap, String mat_khau){
         nguoiChois=new ArrayList<>();
@@ -64,9 +69,15 @@ public class GetAPINguoiChoi extends AsyncTask<String,String,String> {
                     intent.putExtra("diem_cao_nhat",nguoiChois.get(i).diem_cao_nhat);
                     intent.putExtra("hinh_dai_dien",nguoiChois.get(i).hinh_dai_dien);
                     intent.putExtra("credit",nguoiChois.get(i).credit);
+
+                    Map<String,String> mMap = new HashMap<>();
+                    mMap.put("id",nguoiChois.get(i).id);
+                    mMap.put("ten_dang_nhap",nguoiChois.get(i).ten_dang_nhap);
+                    mMap.put("credit",nguoiChois.get(i).credit);
+                    mMap.put("email",nguoiChois.get(i).email);//m lưu 3 cái dủ chưa? dc r ma t goi k ra
+                    new CustomSharedpreferences(context).addShared("NguoiChoi",mMap);
                     context.startActivity(intent);
                 }
-
             }
 
         }catch (JSONException e) {
