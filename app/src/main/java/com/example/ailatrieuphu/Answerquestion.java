@@ -23,7 +23,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.ailatrieuphu.Class.CauHoi;
-import com.example.ailatrieuphu.Class.CustomSharedpreferences;
 import com.example.ailatrieuphu.Class.URLl;
 
 import org.json.JSONArray;
@@ -91,6 +90,7 @@ public class Answerquestion extends AppCompatActivity {
             btnD.setText(mCauHoi.get(position).getdD());
             dap_an=mCauHoi.get(position).getDapAn();
             position++;
+
         } else {
             Toast.makeText(this, "Load API Failed", Toast.LENGTH_SHORT).show();
         }
@@ -154,14 +154,12 @@ public class Answerquestion extends AppCompatActivity {
                 // The dialog is automatically dismissed when a dialog button is clicked.
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        //Them luot choi
                         Map<String,String> map = new HashMap<>();
                         map.put("nguoi_choi_id","2");
                         map.put("so_cau","2");
                         map.put("diem","2");
                         ReadAPI.PostAPI(Answerquestion.this,  map, URLl.url_them_luot_choi);
-
-
-
                         finish();
                     }
                 })

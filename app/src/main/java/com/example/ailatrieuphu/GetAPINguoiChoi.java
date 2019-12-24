@@ -5,8 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 
-import com.example.ailatrieuphu.Class.CustomSharedpreferences;
-
+import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -75,8 +74,8 @@ public class GetAPINguoiChoi extends AsyncTask<String,String,String> {
                     mMap.put("id",nguoiChois.get(i).id);
                     mMap.put("ten_dang_nhap",nguoiChois.get(i).ten_dang_nhap);
                     mMap.put("credit",nguoiChois.get(i).credit);
-                    mMap.put("email",nguoiChois.get(i).email);
-                    new CustomSharedpreferences(context).addShared(mshared,"NguoiChoi",mMap);
+                    mMap.put("email",nguoiChois.get(i).email);//m lưu 3 cái dủ chưa? dc r ma t goi k ra
+                    new CustomSharedpreferences(context).addShared("NguoiChoi",mMap);
                     context.startActivity(intent);
                 }
             }

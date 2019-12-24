@@ -20,12 +20,19 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         tit_tk=findViewById(R.id.ti_tendangnhap);
         tit_mk=findViewById(R.id.ti_matkhau);
+
     }
     public void Dangnhap(View view){
+
         String tendn = tit_tk.getText().toString();
         String mk = tit_mk.getText().toString();
-        GetAPINguoiChoi nguoiChoi = (GetAPINguoiChoi) new GetAPINguoiChoi(this,tendn,mk).execute(urlduongdan);
-
+        if(!tendn.isEmpty()|| !mk.isEmpty()) {
+            GetAPINguoiChoi nguoiChoi = (GetAPINguoiChoi) new GetAPINguoiChoi(this, tendn, mk).execute(urlduongdan);
+        }
+        else {
+            tit_tk.setError("Bạn chưa nhập tên tài khoản !");
+            tit_mk.setError("Bạn chưa nhập mật khẩu !");
+        }
     }
     public void Quenmatkhau(View view){
         Intent qmkintent = new Intent(Login.this,Forgetpassword.class);
