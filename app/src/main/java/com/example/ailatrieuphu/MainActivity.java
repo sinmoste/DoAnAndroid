@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ailatrieuphu.Class.LinhVucAsyncTask;
+import com.example.ailatrieuphu.Class.NguoiChoiAsysTask;
 import com.example.ailatrieuphu.Class.URLl;
 
 
@@ -61,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void Bangxephang(View view){
-        Intent intent = new Intent(MainActivity.this,Rank.class);
-        startActivity(intent);
+        new NguoiChoiAsysTask(this).execute(URLl.url_xep_hang);
+
     }
     public void Muacredit(View view){
         Intent intent = new Intent(MainActivity.this,Credit.class);
