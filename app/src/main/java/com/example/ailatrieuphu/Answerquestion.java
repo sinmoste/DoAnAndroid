@@ -122,6 +122,7 @@ public class Answerquestion extends AppCompatActivity {
     } //Xu ly nut chon
     public  void Tieptuc(View view){
         mCount= (Countdown) new Countdown(this,mPg,txtTime,333).execute();
+        HienThiNut();
         if(ChonDung(position,view))
             socaudung++;
         try {
@@ -144,56 +145,76 @@ public class Answerquestion extends AppCompatActivity {
         }
     }//Xu ly diem, qua cau khac
 
-    public void Ramdom5050(){
-
-    }
-
     public void RandomCauHoi(){
         for(int i=0;i<mCauHoi.size();i++){
             mRandom.add(i);
         }
         Collections.shuffle(mRandom);
     }
+    public void Random50(View v){
+        String a=mCauHoi.get(mRandom.get(position-1)).getDapAn();
+        switch (a) {
+            case "A":
+                if (position % 3 == 0) {
+                    btnC.setVisibility(View.INVISIBLE);
+                    btnD.setVisibility(View.INVISIBLE);
+                }
+                else if (position % 3 == 1) {
+                    btnD.setVisibility(View.INVISIBLE);
+                    btnB.setVisibility(View.INVISIBLE);
+                } else {
+                    btnB.setVisibility(View.INVISIBLE);
+                    btnC.setVisibility(View.INVISIBLE);
+                }
+                break;
+            case "B":
+                if (position % 3 == 0) {
+                    btnA.setVisibility(View.INVISIBLE);
+                    btnD.setVisibility(View.INVISIBLE);
+                }
+                else if (position % 3 == 1) {
+                    btnD.setVisibility(View.INVISIBLE);
+                    btnC.setVisibility(View.INVISIBLE);
+                } else {
+                    btnD.setVisibility(View.INVISIBLE);
+                    btnA.setVisibility(View.INVISIBLE);
+                }
+                break;
+            case "C":
+                if (position % 3 == 0) {
+                    btnA.setVisibility(View.INVISIBLE);
+                    btnD.setVisibility(View.INVISIBLE);
+                }
+                else if (position % 3 == 1) {
+                    btnD.setVisibility(View.INVISIBLE);
+                    btnB.setVisibility(View.INVISIBLE);
+                } else {
+                    btnB.setVisibility(View.INVISIBLE);
+                    btnA.setVisibility(View.INVISIBLE);
+                }
+                break;
+            case "D":
+                if (position % 3 == 0) {
+                    btnC.setVisibility(View.INVISIBLE);
+                    btnB.setVisibility(View.INVISIBLE);
+                }
+                else if (position % 3 == 1) {
+                    btnA.setVisibility(View.INVISIBLE);
+                    btnB.setVisibility(View.INVISIBLE);
+                } else {
+                    btnB.setVisibility(View.INVISIBLE);
+                    btnC.setVisibility(View.INVISIBLE);
+                }
+                break;
+        }
+    }
 
-//    private void DangKy(final int pID, final int pList, final int score)
-//    {
-//        StringRequest stringRequest=new StringRequest(Request.Method.POST, URLl.url_them_luot_choi, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                try {
-//                    JSONObject jsonObject=new JSONObject(response);
-//                    Toast.makeText(getApplicationContext(),"Successfully",Toast.LENGTH_SHORT).show();
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                    Toast.makeText(getApplicationContext(),"Fao;ed"+e.toString(),Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Toast.makeText(getApplicationContext(),"API Failed"+error.toString(),Toast.LENGTH_SHORT).show();
-//            }
-//        })
-//        {
-//            @Override
-//            public String getBodyContentType() {
-//                return "application/x-www-form-urlencoded; charset=UTF-8";
-//            }
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> params=new HashMap<>();
-//                params.put("nguoi_choi_id", String.valueOf(pID));
-//                params.put("so_cau", String.valueOf(pList));
-//                params.put("diem", String.valueOf(score));
-//                return params;
-//
-//            }
-//        };
-//        RequestQueue requestQueue= Volley.newRequestQueue(this);
-//
-//        requestQueue.add(stringRequest);
-//    }
-
+    public void HienThiNut(){
+        btnA.setVisibility(View.VISIBLE);
+        btnB.setVisibility(View.VISIBLE);
+        btnC.setVisibility(View.VISIBLE);
+        btnD.setVisibility(View.VISIBLE);
+    }
     public boolean getJson(String jsonString){
         try{
 
