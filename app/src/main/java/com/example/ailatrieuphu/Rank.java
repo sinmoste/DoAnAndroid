@@ -25,7 +25,7 @@ public class Rank extends AppCompatActivity {
 
     public RecyclerView recyclerView;
     public NguoiChoiAdapter adapter;
-    public ArrayList<NguoiChoi> listnguoichoi;
+    public ArrayList<NguoiChoi> listnguoichoi,list2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +44,22 @@ public class Rank extends AppCompatActivity {
 //        String s=String.valueOf(i);
 //        Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
         sapxep();
+        laytop10();
         recyclerView=findViewById(R.id.rcl_rank);
-        adapter=new NguoiChoiAdapter(this,listnguoichoi);
+        adapter=new NguoiChoiAdapter(this,list2);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+    public void laytop10(){
+        list2=new ArrayList<>();
+        for(int i=0;i<10;i++){
+           NguoiChoi nguoiChoi=new NguoiChoi();
+            nguoiChoi.id=listnguoichoi.get(i).id;
+            nguoiChoi.ten_dang_nhap=listnguoichoi.get(i).ten_dang_nhap;
+            nguoiChoi.hinh_dai_dien=listnguoichoi.get(i).hinh_dai_dien;
+            nguoiChoi.diem_cao_nhat=listnguoichoi.get(i).diem_cao_nhat;
+            list2.add(nguoiChoi);
+        }
     }
     public void sapxep(){
         Collections.sort(listnguoichoi, new Comparator<NguoiChoi>() {
