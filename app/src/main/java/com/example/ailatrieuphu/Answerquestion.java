@@ -2,30 +2,21 @@ package com.example.ailatrieuphu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ailatrieuphu.Class.CauHoi;
 import com.example.ailatrieuphu.Class.ChiTietLuotChoi;
-import com.example.ailatrieuphu.Class.Countdown;
 import com.example.ailatrieuphu.Class.Custom.CustomDialog;
 import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
 import com.example.ailatrieuphu.Class.URLl;
-import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,20 +26,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class Answerquestion extends AppCompatActivity {
 
 
     TextView txtDiem,txtNoiDung,txtThuTuCH,txtTime;
     Button btnA,btnB,btnC,btnD;
-    Button btn50,btnKhanGia,btnQuaCauHoi,btnMuaCredit,btnDoiCauHoi;
-   private ArrayList<CauHoi> mCauHoi;
+
+    private ArrayList<CauHoi> mCauHoi;
     String jsonString,dap_an;
     int position=0,diem=0,life=5,socaudung=0;
     ProgressBar mPg;
     ArrayList<ChiTietLuotChoi> mChiTiet;
     ArrayList<Integer> mRandom;
+
+    CountDownTimer mCountdown;
     public Answerquestion() {
         mCauHoi =  new ArrayList<>();
         mRandom = new ArrayList<>();
@@ -75,8 +67,8 @@ public class Answerquestion extends AppCompatActivity {
         btnD= findViewById(R.id.btn_d);
         if(getJson(jsonString))
              RandomCauHoi();
-     new Countdown(this,mPg,txtTime,100).execute();
         loadQuestion();
+        countddown();
     }
 
     public void loadQuestion(){
@@ -133,11 +125,12 @@ public class Answerquestion extends AppCompatActivity {
         return false;
     } //Xu ly nut chon
     public  void Tieptuc(View view){
-        Countdown mCount = (Countdown) new Countdown(this, mPg, txtTime, 333).execute();
         HienThiNut();
+        mCountdown.cancel();
+        countddown();
         if(ChonDung(position,view))
             socaudung++;
-        mCount.cancel(true);
+
         try {
             if(life!=0) {
                 loadQuestion();
@@ -246,6 +239,23 @@ public class Answerquestion extends AppCompatActivity {
         btnB.setVisibility(View.VISIBLE);
         btnC.setVisibility(View.VISIBLE);
         btnD.setVisibility(View.VISIBLE);
+    }
+    //Countdown time
+    public void countddown(){
+        mCountdown = new CountDownTimer(30000,1000) {
+
+            @Override
+            public void onTick(long l) {
+                txtTime.setText(String.valueOf(l/1000));
+                mPg.setProgress(Math.toIntExact(l / 300));
+            }
+
+            @Override
+            public void onFinish() {
+                txtTime.setText("done!");
+                mPg.setProgress(0);
+            }
+        }.start();
     }
     public boolean getJson(String jsonString){
         try{

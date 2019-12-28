@@ -21,7 +21,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <Button
                 android:id="@+id/btnendkhangia"
                 android:layout_width="50dp"
@@ -30,7 +29,6 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="0dp"
                 android:background="#ffff01"
-                android:drawableRight=""
                 android:gravity="center"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"

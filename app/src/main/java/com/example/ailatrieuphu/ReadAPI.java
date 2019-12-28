@@ -1,6 +1,8 @@
 package com.example.ailatrieuphu;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.util.Base64;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -19,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -151,6 +154,14 @@ public class ReadAPI {
         };
         RequestQueue requestQueue= Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
+    }
+
+    public static String encodeBitmapToString(Bitmap bmp){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        return encodedImage;
     }
 }
 
