@@ -12,7 +12,6 @@
         android:layout_marginTop="18dp"
         android:layout_marginBottom="18dp"
         android:background="@drawable/home_button_dn"
-        android:backgroundTint="@color/design_default_color_primary_dark"
         android:shadowColor="#2B18A8"
         android:shadowDx="0"
         android:shadowDy="0"

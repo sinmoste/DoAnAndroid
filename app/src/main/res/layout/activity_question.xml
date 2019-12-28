@@ -53,7 +53,7 @@
         android:layout_marginEnd="108dp"
         android:text="Chọn Lĩnh Vực"
         android:textColor="@android:color/holo_orange_light"
-        android:textSize="30sp"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -48,6 +48,7 @@ public class GetAPINguoiChoi extends AsyncTask<String,String,String> {
                 String hinh_dai_dien = jsonObject.getString("hinh_dai_dien");
                 String diem_cao_nhat = String.valueOf(jsonObject.getInt("diem_cao_nhat"));
                 String credit = String.valueOf(jsonObject.getInt("credit"));
+                //
 
 
                 nguoiChoi.setId(id);
@@ -73,8 +74,9 @@ public class GetAPINguoiChoi extends AsyncTask<String,String,String> {
                     Map<String,String> mMap = new HashMap<>();
                     mMap.put("id",nguoiChois.get(i).id);
                     mMap.put("ten_dang_nhap",nguoiChois.get(i).ten_dang_nhap);
+                    mMap.put("hinh_dai_dien",nguoiChois.get(i).hinh_dai_dien);
                     mMap.put("credit",nguoiChois.get(i).credit);
-                    mMap.put("email",nguoiChois.get(i).email);//m lưu 3 cái dủ chưa? dc r ma t goi k ra
+                    mMap.put("email",nguoiChois.get(i).email);
                     new CustomSharedpreferences(context).addShared("NguoiChoi",mMap);
                     context.startActivity(intent);
                 }

@@ -57,14 +57,19 @@ public class Registeraccount extends AppCompatActivity {
                     else
                     {
                         txtnhapLaiMatKhau.setError("Mật khẩu nhập lại không trùng khớp!");
+                        txtnhapLaiMatKhau.requestFocus();
                     }
                 }
                 else
                 {
                     txttenTaiKhoan.setError("Tên đăng nhập không được để trống!");
+                    txttenTaiKhoan.requestFocus();
                     txtmatKhau.setError("Mật khẩu không được để trống!");
+                    txtmatKhau.requestFocus();
                     txtnhapLaiMatKhau.setError("Mật khẩu nhập lại không được để trống!");
+                    txtnhapLaiMatKhau.requestFocus();
                     txtemail.setError("Mật khẩu không được để trống!");
+                    txtemail.requestFocus();
                 }
             }
         });

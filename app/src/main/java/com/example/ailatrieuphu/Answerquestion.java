@@ -130,7 +130,7 @@ public class Answerquestion extends AppCompatActivity {
             }else{
                 Map<String,String> map = new HashMap<>();
                 //map.put("nguoi_choi_id",new CustomSharedpreferences(this).getShared("NguoiChoi","id"));
-                map.put("nguoi_choi_id","1");
+                map.put("nguoi_choi_id","17");
                 map.put("so_cau",Integer.toString(socaudung++));
                 map.put("diem",Integer.toString(diem));
                 new CustomSharedpreferences(this).addShared("LuotChoi",map);
