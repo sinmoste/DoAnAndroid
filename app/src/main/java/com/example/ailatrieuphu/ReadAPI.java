@@ -10,8 +10,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.ailatrieuphu.Class.ChiTietLuotChoi;
 import com.example.ailatrieuphu.Class.Custom.CustomDialog;
+import com.example.ailatrieuphu.Class.URLl;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,6 +25,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,8 +74,56 @@ public class ReadAPI {
        StringRequest stringRequest=new StringRequest(Request.Method.POST, duongdan, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+//                try {
+//                    JSONArray jr = new JSONArray(response);
+//                    JSONObject jb = jr.getJSONObject(5);
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        })
+        {
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded; charset=UTF-8";
+            }
+            @Override
+            protected Map<String,String> getParams() throws AuthFailureError {
+//                Map<String,String> params=mMap;
+//                for(String key:mMap.keySet()){
+//                    params.put( key,mMap.get(key));
+//                }
+                return mMap;
+
+            }
+        };
+        RequestQueue requestQueue= Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
+    }
+    public static void PostAPI(final Context context, final Map<String,String> mMap, String duongdan, final ArrayList<ChiTietLuotChoi> mArray)
+    {
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, duongdan, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
                 try {
-                    JSONObject jsonObject=new JSONObject(response);
+                    JSONObject jb = new JSONObject(response);
+                    int id = jb.getInt("id");
+                    for(int i=0;i<mArray.size();i++) {
+                       String cau_hoi_id = String.valueOf(mArray.get(i).getCau_hoi_id());
+                       String phuong_an = mArray.get(i).getPhuong_an();
+                       String diem = String.valueOf(mArray.get(i).getDiem());
+                       Map<String,String> map2 = new HashMap<>();
+                       map2.put("luot_choi_id", String.valueOf(id));
+                       map2.put("cau_hoi_id",cau_hoi_id);
+                       map2.put("phuong_an",phuong_an);
+                       map2.put("diem",diem);
+                       PostAPI(context,map2, URLl.url_them_chi_tiet);
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -101,4 +153,5 @@ public class ReadAPI {
         requestQueue.add(stringRequest);
     }
 }
+
 
