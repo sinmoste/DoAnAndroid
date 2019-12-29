@@ -78,7 +78,7 @@ public class GetAPINguoiChoi extends AsyncTask<String,String,String> {
                     new CustomSharedpreferences(context).addShared("NguoiChoi",mMap);
                     context.startActivity(intent);
                 }
-            }
+            }// cai nay su dung recyclerview luon  di
 
         }catch (JSONException e) {
             e.printStackTrace();

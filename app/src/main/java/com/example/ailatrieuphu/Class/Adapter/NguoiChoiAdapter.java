@@ -28,12 +28,12 @@ public class NguoiChoiAdapter extends RecyclerView.Adapter<NguoiChoiAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tentaikhoan,sodiem;
-      //  private ImageView anhdaidien;
+        private ImageView anhdaidien;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tentaikhoan=itemView.findViewById(R.id.txttaikhoan_xephang);
             sodiem=itemView.findViewById(R.id.txtdiem_xephang);
-        //    anhdaidien=itemView.findViewById(R.id.imganhdaidien_xephang);
+            anhdaidien=itemView.findViewById(R.id.imganhdaidien_xephang);
         }
     }
     @NonNull
@@ -45,9 +45,10 @@ public class NguoiChoiAdapter extends RecyclerView.Adapter<NguoiChoiAdapter.View
     @Override
     public void onBindViewHolder(@NonNull NguoiChoiAdapter.ViewHolder holder, int position) {
         holder.tentaikhoan.setText(Listnguoichoi.get(position).getTen_dang_nhap());
-        Toast.makeText(context, Listnguoichoi.get(position).getId(), Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(context, Listnguoichoi.get(position).getId(), Toast.LENGTH_SHORT).show();
         holder.sodiem.setText(Listnguoichoi.get(position).getDiem_cao_nhat());
     //  holder.anhdaidien.setImageResource(Integer.parseInt(Listnguoichoi.get(position).getHinh_dai_dien().toString()));
+        holder.anhdaidien.setImageResource(R.drawable.ironman);
     }
 
     @Override

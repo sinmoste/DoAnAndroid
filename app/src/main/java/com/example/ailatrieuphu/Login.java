@@ -12,8 +12,9 @@ public class Login extends AppCompatActivity {
     TextInputEditText tit_tk;
     TextInputEditText tit_mk;
 
-    String urlduongdan="http://192.168.153.2:8080/GameLaravel/public/api/apinguoichoi";
+   // String urlduongdan="http://192.168.153.2:8080/GameLaravel/public/api/apinguoichoi";
    // String urlduongdan="http://192.168.1.253/GameLaravel/public/api/apinguoichoi";
+    String urlduongdan="http://10.0.3.2:8000/api/apinguoichoi";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,7 @@ public class Login extends AppCompatActivity {
 
     }
     public void Dangnhap(View view){
-
+//tat me cai visual di bat cmd len do lag
         String tendn = tit_tk.getText().toString();
         String mk = tit_mk.getText().toString();
         if(!tendn.isEmpty()|| !mk.isEmpty()) {

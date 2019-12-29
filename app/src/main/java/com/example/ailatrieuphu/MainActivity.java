@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.ailatrieuphu.Class.LinhVucAsyncTask;
 import com.example.ailatrieuphu.Class.NguoiChoiAsysTask;
+import com.example.ailatrieuphu.Class.ShopcreditAsynctask;
 import com.example.ailatrieuphu.Class.URLl;
 
 
@@ -66,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void Muacredit(View view){
-        Intent intent = new Intent(MainActivity.this,Credit.class);
-        startActivity(intent);
+        new ShopcreditAsynctask(this).execute(URLl.url_goi_credit);
+       // Intent intent = new Intent(MainActivity.this,shopcredit.class);
+       // startActivity(intent);
     }
 }
