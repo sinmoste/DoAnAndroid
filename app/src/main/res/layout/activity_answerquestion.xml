@@ -188,6 +188,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/diamondcredit"
+        android:onClick="TroGiupQuaMan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnGoiDien"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
@@ -221,7 +222,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/reload"
-        android:onClick="Run"
+        android:onClick="TroGiupDoiCauHoi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
@@ -232,6 +233,7 @@
         android:layout_marginStart="3dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/people"
+        android:onClick="trogiupkhangia"
         app:layout_constraintEnd_toStartOf="@+id/btnGoiDien"
         app:layout_constraintStart_toEndOf="@+id/btn5050"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />

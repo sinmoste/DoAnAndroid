@@ -2,11 +2,10 @@ package com.example.ailatrieuphu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ailatrieuphu.Class.CauHoi;
-import com.example.ailatrieuphu.Class.Countdown;
+import com.example.ailatrieuphu.Class.ChiTietLuotChoi;
 import com.example.ailatrieuphu.Class.Custom.CustomDialog;
 import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
 import com.example.ailatrieuphu.Class.URLl;
@@ -27,24 +26,25 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class Answerquestion extends AppCompatActivity {
 
 
     TextView txtDiem,txtNoiDung,txtThuTuCH,txtTime;
     Button btnA,btnB,btnC,btnD;
-    Button btn50,btnKhanGia,btnQuaCauHoi,btnMuaCredit,btnDoiCauHoi;
-   private ArrayList<CauHoi> mCauHoi;
+
+    private ArrayList<CauHoi> mCauHoi;
     String jsonString,dap_an;
     int position=0,diem=0,life=5,socaudung=0;
-    private Countdown mCount;
     ProgressBar mPg;
-
+    ArrayList<ChiTietLuotChoi> mChiTiet;
     ArrayList<Integer> mRandom;
+
+    CountDownTimer mCountdown;
     public Answerquestion() {
         mCauHoi =  new ArrayList<>();
         mRandom = new ArrayList<>();
+        mChiTiet = new ArrayList<>();
     }
 
     @Override
@@ -67,8 +67,8 @@ public class Answerquestion extends AppCompatActivity {
         btnD= findViewById(R.id.btn_d);
         if(getJson(jsonString))
              RandomCauHoi();
-        new Countdown(this,mPg,txtTime,100).execute();
         loadQuestion();
+        countddown();
     }
 
     public void loadQuestion(){
@@ -96,55 +96,70 @@ public class Answerquestion extends AppCompatActivity {
                        diem++;
                        return true;
                    }
+                   mChiTiet.add(new ChiTietLuotChoi(position,"A",diem));
                    break;
                case R.id.btn_b:
                    if ("B".equals(mCauHoi.get(vitri).getDapAn())) {
                        diem++;
                        return true;
                    }
+                   mChiTiet.add(new ChiTietLuotChoi(position,"B",diem));
                    break;
                case R.id.btn_c:
                    if ("C".equals(mCauHoi.get(vitri).getDapAn())) {
                        diem++;
+
                        return true;
                    }
+                   mChiTiet.add(new ChiTietLuotChoi(position,"C",diem));
                    break;
                case R.id.btn_d:
                    if ("D".equals(mCauHoi.get(vitri).getDapAn())) {
                        diem++;
                        return true;
                    }
-                   break;
+                   mChiTiet.add(new ChiTietLuotChoi(position,"D",diem));
            }
            life--;
        }
         return false;
     } //Xu ly nut chon
     public  void Tieptuc(View view){
-        mCount= (Countdown) new Countdown(this,mPg,txtTime,333).execute();
         HienThiNut();
+        mCountdown.cancel();
+        countddown();
         if(ChonDung(position,view))
             socaudung++;
+
         try {
             if(life!=0) {
                 loadQuestion();
             }else{
+
                 Map<String,String> map = new HashMap<>();
                 //map.put("nguoi_choi_id",new CustomSharedpreferences(this).getShared("NguoiChoi","id"));
-                map.put("nguoi_choi_id","1");
+                map.put("nguoi_choi_id","2");
                 map.put("so_cau",Integer.toString(socaudung++));
                 map.put("diem",Integer.toString(diem));
                 new CustomSharedpreferences(this).addShared("LuotChoi",map);
                 new CustomDialog(Answerquestion.this).showDialogandPostAPI("Hết sinh lực",
                         "Số điểm của bạn là: "+diem+"\n"+"Nhấn OK để kết thúc",
                         map,
-                        URLl.url_them_luot_choi);
+                        URLl.url_them_luot_choi,
+                        mChiTiet);
+
+
             }
         }catch (Exception e){
             Toast.makeText(this, "Hết câu!", Toast.LENGTH_SHORT).show();
         }
     }//Xu ly diem, qua cau khac
 
+    /*Xu ly tro giup*/
+    public void trogiupkhangia(View view)
+    {
+      new CustomDialog(this).showDialogaudience();
+    }
     public void RandomCauHoi(){
         for(int i=0;i<mCauHoi.size();i++){
             mRandom.add(i);
@@ -208,12 +223,39 @@ public class Answerquestion extends AppCompatActivity {
                 break;
         }
     }
+    public void TroGiupDoiCauHoi(View v){
+        position++;
+        loadQuestion();
+    }
+    public void TroGiupQuaMan(View v){
+        position++;
+        diem++;
+        loadQuestion();
+    }
+    /*Ket thuc xu ly tro giup*/
 
     public void HienThiNut(){
         btnA.setVisibility(View.VISIBLE);
         btnB.setVisibility(View.VISIBLE);
         btnC.setVisibility(View.VISIBLE);
         btnD.setVisibility(View.VISIBLE);
+    }
+    //Countdown time
+    public void countddown(){
+        mCountdown = new CountDownTimer(30000,1000) {
+
+            @Override
+            public void onTick(long l) {
+                txtTime.setText(String.valueOf(l/1000));
+                mPg.setProgress(Math.toIntExact(l / 300));
+            }
+
+            @Override
+            public void onFinish() {
+                txtTime.setText("done!");
+                mPg.setProgress(0);
+            }
+        }.start();
     }
     public boolean getJson(String jsonString){
         try{
@@ -237,4 +279,7 @@ public class Answerquestion extends AppCompatActivity {
         }
     } //Lay cau hoi
 }
+/*
+
+*/
 

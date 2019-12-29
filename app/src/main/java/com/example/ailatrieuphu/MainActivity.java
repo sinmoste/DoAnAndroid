@@ -9,10 +9,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
 import com.example.ailatrieuphu.Class.LinhVucAsyncTask;
 import com.example.ailatrieuphu.Class.NguoiChoiAsysTask;
 import com.example.ailatrieuphu.Class.ShopcreditAsynctask;
 import com.example.ailatrieuphu.Class.URLl;
+import com.squareup.picasso.Picasso;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,13 +22,17 @@ public class MainActivity extends AppCompatActivity {
     TextView tennc,creditnc;
     String ten_dang_nhap;
     String credit;
-    ImageView imgamthanh;
+    ImageView imgamthanh,imgdaidien;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tennc=findViewById(R.id.txtTenNguoiChoi);
         creditnc=findViewById(R.id.txtCredit);
+        imgdaidien=findViewById(R.id.img_nguoichoi);
+        String hinh= new CustomSharedpreferences(this).getShared("NguoiChoi","hinh_dai_dien");
+        Picasso.with(this).load("http://10.0.3.2:8080/GameLaravel/public/img/"+hinh).into(imgdaidien);
         //thông tin người chơi
         Intent intent = getIntent();
         ten_dang_nhap=intent.getStringExtra("ten_dang_nhap");
