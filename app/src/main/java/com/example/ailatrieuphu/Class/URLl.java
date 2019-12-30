@@ -9,4 +9,6 @@ public class URLl {
     public static final String url_xep_hang=base_url+"/api/bang-xep-hang";
     public static final String url_goi_credit=base_url+"/api/goi-credit";
  public static final String url_them_chi_tiet=base_url+"/api/them-chi-tiet";
+ public static final String url_lay_credit_nguoi_choi = base_url+"/api/lay-credit";
+ public static final String url_update_credit = base_url+"/api/cap-nhat-goi-credit";
 }

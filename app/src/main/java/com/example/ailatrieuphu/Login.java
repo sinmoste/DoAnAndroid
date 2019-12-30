@@ -1,10 +1,10 @@
 package com.example.ailatrieuphu;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -14,6 +14,7 @@ public class Login extends AppCompatActivity {
 
     String urlduongdan="http://192.168.153.2:8080/GameLaravel/public/api/apinguoichoi";
    // String urlduongdan="http://192.168.1.253/GameLaravel/public/api/apinguoichoi";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

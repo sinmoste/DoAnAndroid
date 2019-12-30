@@ -1,7 +1,6 @@
 package com.example.ailatrieuphu.Class.Adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ailatrieuphu.Class.Custom.CustomDialog;
+import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
+import com.example.ailatrieuphu.Class.URLl;
 import com.example.ailatrieuphu.CreDit;
 import com.example.ailatrieuphu.R;
+import com.example.ailatrieuphu.ReadAPI;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CreditAdapter extends RecyclerView.Adapter<CreditAdapter.ViewHolder> {
     Context context;
@@ -43,7 +48,7 @@ public class CreditAdapter extends RecyclerView.Adapter<CreditAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CreditAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CreditAdapter.ViewHolder holder, final int position) {
 
         String giatien=String.valueOf(listcredit.get(position).getGia_tien_credit());
         String giacredit=String.valueOf(listcredit.get(position).getGia_credit());
@@ -55,7 +60,17 @@ public class CreditAdapter extends RecyclerView.Adapter<CreditAdapter.ViewHolder
         holder.imgkimcuongshop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String nguoichoicredit = new CustomSharedpreferences(context).getShared("NguoiChoi","credit");
+                String idnguoichoi=new CustomSharedpreferences(context).getShared("NguoiChoi","id");
+                int credit = listcredit.get(position).getGia_credit() + Integer.parseInt(nguoichoicredit);
+                Map<String,String> map=new HashMap<>();
+                map.put("id",idnguoichoi);
+                map.put("credit",String.valueOf(credit));
+                ReadAPI.PostAPI(context,map, URLl.url_update_credit);
+                Map<String,String> mapnguoichoi=new HashMap<>();
+                mapnguoichoi.put("credit",String.valueOf(credit));
+                new CustomSharedpreferences(context).addShared("NguoiChoi",map);
+                new CustomDialog(context).showDialog("thông Báo","Mua gói "+listcredit.get(position).getTen_goi_credit()+" thành công");
             }
         });
     }
