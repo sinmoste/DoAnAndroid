@@ -1,12 +1,17 @@
 package com.example.ailatrieuphu;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -21,13 +26,22 @@ import com.google.android.material.textfield.TextInputEditText;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Registeraccount extends AppCompatActivity {
     Button btnDangKy;
     private TextInputEditText txttenTaiKhoan,txtmatKhau,txtnhapLaiMatKhau,txtemail;
+    private ImageView imgv;
     private ProgressDialog pDialog;
+    //layhinh
+    public static final String UPLOAD_KEY = "hinh_anh";
+    public static final String UPLOAD_URL = "upload";
+    final int PICK_IMAGE_REQUEST = 1;
+    private Uri filePath;
+    private Bitmap bitmap;
+    private static String hinhanh;
     public class URLs {
         private static final String ROOT_URL = "http://10.0.3.2:8000/api/them-nguoi-choi";
     }
@@ -41,6 +55,8 @@ public class Registeraccount extends AppCompatActivity {
         txtnhapLaiMatKhau=findViewById(R.id.tidk_nhaplaimatkhau);
         txtemail=findViewById(R.id.tidk_email);
         btnDangKy=findViewById(R.id.btn_dangkytk);
+        // Hien thi hinh anh len ImageView
+        imgv = findViewById(R.id.imgHinhDaiDien);
 
         btnDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,10 +133,43 @@ public class Registeraccount extends AppCompatActivity {
                 params.put("ten_dang_nhap",ttk);
                 params.put("mat_khau",mk);
                 params.put("email",email);
+                params.put("hinh_dai_dien",hinhanh);
                 return params;
             }
         };
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null) {
+            // Lay Uri den file duoc chon
+            filePath = data.getData();
+
+
+            try {
+                // Lay hinh anh Bitmap tu Uri
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                hinhanh=ReadAPI.encodeBitmapToString(bitmap);
+                imgv.setImageBitmap(bitmap);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+    public void chonhinh(View view) {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+
+        startActivityForResult(Intent.createChooser(intent, "Select image"),
+                PICK_IMAGE_REQUEST);
+    }
+
 }

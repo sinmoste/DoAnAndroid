@@ -16,7 +16,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_no_avatar" />
+        app:srcCompat="@drawable/ic_no_avatar"
+        android:onClick="chonhinh_maa"/>
 
     <TextView
         android:id="@+id/textView"
