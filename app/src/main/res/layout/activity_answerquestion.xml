@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/diamond" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txtCreditt"
         android:layout_width="100dp"
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/txtTenng"
         android:layout_width="226dp"
         android:layout_height="30dp"
         android:layout_marginStart="15dp"
@@ -181,7 +181,7 @@
         tools:layout_editor_absoluteY="490dp"/>
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/btnMuaCauHoi"
         android:layout_width="75dp"
         android:layout_height="50dp"
         android:layout_marginStart="3dp"
@@ -200,7 +200,8 @@
         android:layout_marginStart="3dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/phone"
-        app:layout_constraintEnd_toStartOf="@+id/button10"
+        android:onClick="TroGiupGoiDien"
+        app:layout_constraintEnd_toStartOf="@+id/btnMuaCauHoi"
         app:layout_constraintStart_toEndOf="@+id/btnKhanGia"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
@@ -249,6 +250,25 @@
         app:layout_constraintStart_toStartOf="@+id/progressBar"
         app:layout_constraintTop_toTopOf="@+id/progressBar" />
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="36dp"
+        app:layout_constraintEnd_toEndOf="@+id/txtTenng"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_favorite_heart_24dp" />
+
+    <TextView
+        android:id="@+id/txtLife"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:text="x5"
+        app:layout_constraintEnd_toEndOf="@+id/txtTenng"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
