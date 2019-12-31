@@ -21,7 +21,7 @@
         <LinearLayout
             android:layout_width="113dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="200px"
+            android:layout_marginLeft="100px"
             android:orientation="vertical"
             android:textAlignment="center">
 
@@ -29,19 +29,28 @@
                 android:id="@+id/txt_tencredit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_marginBottom="60px"
+                android:text="TextView"
+                android:textColor="#ABB7D8"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_giacredit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_marginBottom="40px"
+                android:text="TextView"
+                android:textColor="#F4FF81"
+                android:textColorHighlight="#2AAC4E"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/txt_giatiencredit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#EB131F" />
         </LinearLayout>
 
     </LinearLayout>

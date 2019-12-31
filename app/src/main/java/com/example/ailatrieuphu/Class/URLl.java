@@ -11,4 +11,6 @@ public class URLl {
  public static final String url_them_chi_tiet=base_url+"/api/them-chi-tiet";
  public static final String url_lay_credit_nguoi_choi = base_url+"/api/lay-credit";
  public static final String url_update_credit = base_url+"/api/cap-nhat-goi-credit";
+
+ public static final String url_lich_su_mua = base_url+"/api/lich-su-mua-credit/";
 }

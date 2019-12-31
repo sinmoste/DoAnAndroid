@@ -54,9 +54,9 @@ public class CreditAdapter extends RecyclerView.Adapter<CreditAdapter.ViewHolder
         String giacredit=String.valueOf(listcredit.get(position).getGia_credit());
 
         //
-        holder.tengoicredit.setText("Tên Gói: "+listcredit.get(position).getTen_goi_credit());
+        holder.tengoicredit.setText(listcredit.get(position).getTen_goi_credit());
         holder.giacredit.setText(giatien);
-        holder.giatien.setText(giacredit);
+        holder.giatien.setText("Credit: "+giacredit);
         holder.imgkimcuongshop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +71,12 @@ public class CreditAdapter extends RecyclerView.Adapter<CreditAdapter.ViewHolder
                 mapnguoichoi.put("credit",String.valueOf(credit));
                 new CustomSharedpreferences(context).addShared("NguoiChoi",map);
                 new CustomDialog(context).showDialog("thông Báo","Mua gói "+listcredit.get(position).getTen_goi_credit()+" thành công");
+                Map<String,String> lsmua_map=new HashMap<>();
+                lsmua_map.put("nguoi_choi_id",idnguoichoi);
+                lsmua_map.put("goi_credit_id",listcredit.get(position).getId());
+                lsmua_map.put("credit",String.valueOf(listcredit.get(position).getGia_credit()));
+                lsmua_map.put("so_tien",String.valueOf(listcredit.get(position).getGia_tien_credit()));
+                ReadAPI.PostAPI(context,lsmua_map,URLl.url_lich_su_mua);
             }
         });
     }

@@ -6,16 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ailatrieuphu.NguoiChoi;
 import com.example.ailatrieuphu.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NguoiChoiAdapter extends RecyclerView.Adapter<NguoiChoiAdapter.ViewHolder> {
     private Context context;
@@ -28,12 +27,14 @@ public class NguoiChoiAdapter extends RecyclerView.Adapter<NguoiChoiAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tentaikhoan,sodiem;
-        private ImageView anhdaidien;
+        private ImageView anhdaidien,stt;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tentaikhoan=itemView.findViewById(R.id.txttaikhoan_xephang);
             sodiem=itemView.findViewById(R.id.txtdiem_xephang);
             anhdaidien=itemView.findViewById(R.id.imganhdaidien_xephang);
+            stt=itemView.findViewById(R.id.img_stt);
         }
     }
     @NonNull
@@ -48,7 +49,16 @@ public class NguoiChoiAdapter extends RecyclerView.Adapter<NguoiChoiAdapter.View
       //  Toast.makeText(context, Listnguoichoi.get(position).getId(), Toast.LENGTH_SHORT).show();
         holder.sodiem.setText(Listnguoichoi.get(position).getDiem_cao_nhat());
     //  holder.anhdaidien.setImageResource(Integer.parseInt(Listnguoichoi.get(position).getHinh_dai_dien().toString()));
-        holder.anhdaidien.setImageResource(R.drawable.ironman);
+        String hinh= Listnguoichoi.get(position).getHinh_dai_dien();
+        holder.stt.setImageResource(R.drawable.ironman);
+        if(!hinh.equals("")){
+            Picasso.with(context).load("http://10.0.3.2:8080/GameLaravel/public/img/"+hinh).into(holder.anhdaidien);
+        }else{
+            holder.anhdaidien.setImageResource(R.drawable.ironman);
+        }
+
+
+
     }
 
     @Override
