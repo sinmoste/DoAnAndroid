@@ -38,6 +38,7 @@ public class CustomDialog {
                     }
                 })
                 //.setNegativeButton(android.R.string.no, null)
+                .setIcon(R.drawable.ic_favorite_heart_24dp)
                 .show();
     }
     public void showDialogandPostAPI(String title, String message, final Map<String,String> mMap, final String duongdan,final ArrayList<ChiTietLuotChoi> mArray){
@@ -50,6 +51,7 @@ public class CustomDialog {
                     }
                 })
                 //.setNegativeButton(android.R.string.no, null)
+                .setIcon(R.drawable.ic_favorite_heart_24dp)
                 .show();
     }//  ReadAPI.PostAPI(context,mMap, URLl.url_them_luot_choi,mArray);
 
@@ -65,26 +67,70 @@ public class CustomDialog {
                 })
                 // A null listener allows the button to dismiss the dialog and take no further action.
                 //.setNegativeButton(android.R.string.no, null)
+
                 .show();
     }
+    public void randomm(int[] a,String b){
+        switch (b){
+            case "A":
+                a[0]= new Random().nextInt(15)+10;
+                a[1]= new Random().nextInt(15)+5;
+                a[2]= new Random().nextInt(15)+5;
+                a[3]= new Random().nextInt(15)+5;
+                break;
+            case "B":
+                a[0]= new Random().nextInt(15)+5;
+                a[1]= new Random().nextInt(15)+10;
+                a[2]= new Random().nextInt(15)+5;
+                a[3]= new Random().nextInt(15)+5;
+                break;
+            case "C":
+                a[0]= new Random().nextInt(15)+5;
+                a[1]= new Random().nextInt(15)+5;
+                a[2]= new Random().nextInt(15)+10;
+                a[3]= new Random().nextInt(15)+5;
+                break;
+            case "D":
+                a[0]= new Random().nextInt(15)+5;
+                a[1]= new Random().nextInt(15)+5;
+                a[2]= new Random().nextInt(15)+5;
+                a[3]= new Random().nextInt(15)+10;
+                break;
+        }
+        int sum=0;
+        do{
+            sum=a[0]+a[1]+a[2]+a[3];
+            if(sum==100){break;}
+            a[0]++;
+            a[1]++;
+            a[2]++;
+            a[3]++;
+            System.out.println("A" + a[0]);
+            System.out.println("B" +a[1]);
+            System.out.println("C" +a[2]);
+            System.out.println("D" +a[3]+"\n");
+        }
+        while(sum<100);
+    }
 
-    public void showDialogaudience(){
+    public void showDialogBuy(){
+
+    }
+
+    public void showDialogaudience(String b){
         final Dialog dialog=new Dialog(context);
         dialog.setContentView(R.layout.dialog_khangia);
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
         BarChart barChart = dialog.findViewById(R.id.barchart);
-        Random random = new Random();
-        int a = random.nextInt(100);
-        int b = random.nextInt(100);
-        int c = random.nextInt(100);
-        int d = random.nextInt(100);
+        int[] a = new int[4];
+        randomm(a,b);
         ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(a, 0));
-        entries.add(new BarEntry(b, 1));
-        entries.add(new BarEntry(c, 2));
-        entries.add(new BarEntry(d, 3));
-        BarDataSet bardataset = new BarDataSet(entries, "Cells");
+        entries.add(new BarEntry(a[0], 0));
+        entries.add(new BarEntry(a[1], 1));
+        entries.add(new BarEntry(a[2], 2));
+        entries.add(new BarEntry(a[3], 3));
+        BarDataSet bardataset = new BarDataSet(entries, "A B C D");
         ArrayList<String> labels = new ArrayList<>();
         labels.add("A");
         labels.add("B");
@@ -93,7 +139,7 @@ public class CustomDialog {
         BarData data = new BarData(labels,bardataset);
         barChart.setData(data);
         bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
-        barChart.animateY(1000);
+        barChart.animateY(2000);
         Button btnendkhangia = dialog.findViewById(R.id.btnendkhangia);
         btnendkhangia.setOnClickListener(new View.OnClickListener() {
             @Override
