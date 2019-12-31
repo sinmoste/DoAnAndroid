@@ -3,7 +3,7 @@
     android:layout_width="350dp"
     android:layout_height="500dp"
     android:layout_gravity="center"
-    android:background="#FF5722">
+    android:background="@drawable/background">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -21,6 +21,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <Button
                 android:id="@+id/btnendkhangia"
                 android:layout_width="50dp"
@@ -28,7 +29,7 @@
                 android:layout_alignParentLeft="false"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="0dp"
-                android:background="#ffff01"
+                android:background="@drawable/cancel"
                 android:gravity="center"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
