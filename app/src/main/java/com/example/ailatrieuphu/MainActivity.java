@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tennc=findViewById(R.id.txtTenNguoiChoi);
+        tennc=findViewById(R.id.txtTenng);
         creditnc=findViewById(R.id.txtCredit);
         imgdaidien=findViewById(R.id.img_nguoichoi);
         String hinh= new CustomSharedpreferences(this).getShared("NguoiChoi","hinh_dai_dien");
