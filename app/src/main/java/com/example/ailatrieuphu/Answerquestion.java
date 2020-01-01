@@ -297,7 +297,6 @@ public class Answerquestion extends AppCompatActivity {
     }
     public boolean getJson(String jsonString){
         try{
-
             JSONObject data = new JSONObject(jsonString);
             JSONArray jr = data.getJSONArray("data");
 
