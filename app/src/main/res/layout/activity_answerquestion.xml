@@ -267,6 +267,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:text="x5"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/txtTenng"
         app:layout_constraintTop_toTopOf="parent" />
 
