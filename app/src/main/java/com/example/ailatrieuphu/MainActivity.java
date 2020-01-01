@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         Picasso.with(this).load("http://10.0.3.2:8080/GameLaravel/public/img/"+hinh).into(imgdaidien);
         //thông tin người chơi
         Intent intent = getIntent();
+
         ten_dang_nhap=intent.getStringExtra("ten_dang_nhap");
         tennc.setText(ten_dang_nhap);
         credit= intent.getStringExtra("credit");
