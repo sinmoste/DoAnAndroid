@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:layout_margin="15px"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_lichsu_tencredit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30px"
+                android:text="TextView"
+                android:textColor="#F7FF0000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_lichsu_credit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="#FAF00D0D"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_thoigian"
+            android:layout_width="258dp"
+            android:layout_height="49dp"
+            android:layout_marginLeft="80px"
+            android:text="TextView"
+            android:textColor="#008E16D8" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -10,6 +10,13 @@ public class NguoiChoi {
     String diem_cao_nhat;
     String credit;
 
+    public NguoiChoi(String id, String ten_dang_nhap, String mat_khau, String email, String hinh_dai_dien, String diem_cao_nhat, String goi_credit) {
+    }
+
+    public NguoiChoi() {
+
+    }
+
     public String getTen_dang_nhap() {
         return ten_dang_nhap;
     }

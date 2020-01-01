@@ -1,7 +1,5 @@
 package com.example.ailatrieuphu;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -9,8 +7,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
+import com.example.ailatrieuphu.Class.LichSucreditAsysctask;
 import com.example.ailatrieuphu.Class.LinhVucAsyncTask;
+import com.example.ailatrieuphu.Class.NguoiChoiAsysTask;
+import com.example.ailatrieuphu.Class.ShopcreditAsynctask;
 import com.example.ailatrieuphu.Class.URLl;
 import com.squareup.picasso.Picasso;
 
@@ -60,19 +63,22 @@ public class MainActivity extends AppCompatActivity {
         new LinhVucAsyncTask(this).execute(URLl.url_get_linh_vuc);
     }
     public void Lichsuchoi(View view){
-        Intent intent = new Intent(MainActivity.this,History.class);
-        startActivity(intent);
+      //  Intent intent = new Intent(MainActivity.this,History.class);
+       // startActivity(intent);
+        String id=new CustomSharedpreferences(this).getShared("NguoiChoi","id");
+        new LichSucreditAsysctask(this).execute(URLl.url_lich_su_mua+id);
     }
     public void Quanlitaikhoan(View view){
         Intent intent = new Intent(MainActivity.this,Infoaccount.class);
         startActivity(intent);
     }
     public void Bangxephang(View view){
-        Intent intent = new Intent(MainActivity.this,Rank.class);
-        startActivity(intent);
+        new NguoiChoiAsysTask(this).execute(URLl.url_xep_hang);
+
     }
     public void Muacredit(View view){
-        Intent intent = new Intent(MainActivity.this,Credit.class);
-        startActivity(intent);
+        new ShopcreditAsynctask(this).execute(URLl.url_goi_credit);
+       // Intent intent = new Intent(MainActivity.this,shopcredit.class);
+       // startActivity(intent);
     }
 }

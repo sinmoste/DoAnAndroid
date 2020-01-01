@@ -3,7 +3,6 @@ package com.example.ailatrieuphu;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Base64;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -13,10 +12,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.ailatrieuphu.Class.ChiTietLuotChoi;
-import com.example.ailatrieuphu.Class.Custom.CustomDialog;
 import com.example.ailatrieuphu.Class.URLl;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -108,6 +105,9 @@ public class ReadAPI {
         RequestQueue requestQueue= Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
     }
+
+
+
     public static void PostAPI(final Context context, final Map<String,String> mMap, String duongdan, final ArrayList<ChiTietLuotChoi> mArray)
     {
         StringRequest stringRequest=new StringRequest(Request.Method.POST, duongdan, new Response.Listener<String>() {
