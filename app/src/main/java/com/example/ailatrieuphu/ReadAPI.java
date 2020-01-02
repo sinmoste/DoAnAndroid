@@ -104,10 +104,11 @@ public class ReadAPI {
         };
         RequestQueue requestQueue= Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
+        requestQueue.cancelAll(stringRequest);
     }
 
 
-
+    //Them chi tiet luot choi
     public static void PostAPI(final Context context, final Map<String,String> mMap, String duongdan, final ArrayList<ChiTietLuotChoi> mArray)
     {
         StringRequest stringRequest=new StringRequest(Request.Method.POST, duongdan, new Response.Listener<String>() {
@@ -116,6 +117,12 @@ public class ReadAPI {
                 try {
                     JSONObject jb = new JSONObject(response);
                     int id = jb.getInt("id");
+                    int nguoi_choi_id = jb.getInt("nguoi_choi_id");
+                    int diem_cao_nhat = jb.getInt("diem");
+                    Map<String,String > map3 = new HashMap<>();//Cap nhap diem co cao ko
+                    map3.put("nguoi_choi_id", String.valueOf(nguoi_choi_id));
+                    map3.put("diem",String.valueOf(diem_cao_nhat));
+
                     for(int i=0;i<mArray.size();i++) {
                        String cau_hoi_id = String.valueOf(mArray.get(i).getCau_hoi_id());
                        String phuong_an = mArray.get(i).getPhuong_an();
@@ -127,6 +134,9 @@ public class ReadAPI {
                        map2.put("diem",diem);
                        PostAPI(context,map2, URLl.url_them_chi_tiet);
                     }
+                    PostAPI(context,map3,URLl.url_cap_nhat_diem);
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
