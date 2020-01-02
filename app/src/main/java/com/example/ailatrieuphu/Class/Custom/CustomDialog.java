@@ -1,5 +1,6 @@
 package com.example.ailatrieuphu.Class.Custom;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -112,7 +113,15 @@ public class CustomDialog {
         }
         while(sum<100);
     }
-
+    public void showResultDialog(String title,String message){
+        new AlertDialog.Builder(context).setTitle(title).setMessage(message)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Activity ac = (Activity)context;
+                        ac.finish();
+                    }
+                }).setIcon(R.drawable.archivement).show();
+    }
     public void showDialogBuy(){
 
     }
