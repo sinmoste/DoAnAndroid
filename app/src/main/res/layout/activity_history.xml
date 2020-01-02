@@ -9,14 +9,17 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="28dp"
-        android:text="Lịch Sử Chơi"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:text="Lịch Sử Mua Credit"
+        android:textAlignment="center"
         android:textColor="@color/colorAccent"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTenng" />
 
@@ -58,8 +61,8 @@
 
     <LinearLayout
         android:layout_width="413dp"
-        android:layout_height="627dp"
-        android:layout_marginTop="1dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7">

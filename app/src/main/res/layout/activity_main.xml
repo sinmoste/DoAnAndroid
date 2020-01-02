@@ -94,7 +94,7 @@
         android:backgroundTint="#FF1564"
         android:fontFamily="@font/futura"
         android:onClick="Lichsuchoi"
-        android:text="Lịch Sử Chơi"
+        android:text="Lịch Sử Mua Credit"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         android:textStyle="bold"
