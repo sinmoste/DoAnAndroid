@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/home_background"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <Button
         android:id="@+id/button15"
@@ -96,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button15" />
 
     <TextView
-        android:id="@+id/txtTenng"
+        android:id="@+id/txtTennc"
         android:layout_width="226dp"
         android:layout_height="30dp"
         android:layout_marginStart="15dp"
@@ -108,7 +109,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtCreditt"
+        android:id="@+id/txtCreditnc"
         android:layout_width="100dp"
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
@@ -144,6 +145,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTenng" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTennc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

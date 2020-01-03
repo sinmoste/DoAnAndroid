@@ -149,8 +149,6 @@ public class Registeraccount extends AppCompatActivity {
                 && data != null && data.getData() != null) {
             // Lay Uri den file duoc chon
             filePath = data.getData();
-
-
             try {
                 // Lay hinh anh Bitmap tu Uri
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
@@ -160,7 +158,6 @@ public class Registeraccount extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     }
     public void chonhinh(View view) {

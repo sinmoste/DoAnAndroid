@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
@@ -24,24 +24,28 @@
                 android:layout_marginBottom="30px"
                 android:text="TextView"
                 android:textColor="#F7FF0000"
-                android:textSize="18sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_lichsu_credit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textColor="#FAF00D0D"
-                android:textSize="16dp" />
+                android:textColor="#76FF03"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/txt_thoigian"
-            android:layout_width="258dp"
-            android:layout_height="49dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="80px"
             android:text="TextView"
-            android:textColor="#008E16D8" />
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

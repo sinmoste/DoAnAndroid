@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.ailatrieuphu.Class.Adapter.CreditAdapter;
+import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,6 +24,7 @@ public class shopcredit extends AppCompatActivity {
     public CreditAdapter adapter;
     public ArrayList<CreDit> listcredit;
     int a;
+    TextView tennc,creditnc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +33,21 @@ public class shopcredit extends AppCompatActivity {
         Intent intent=getIntent();
         String jsonstring=intent.getStringExtra("credit");
         Toast.makeText(this,jsonstring,Toast.LENGTH_SHORT).show();
+
+        tennc=findViewById(R.id.txtTennc);
+        creditnc=findViewById(R.id.txtCreditnc);
+
+        String ten_dang_nhap = new CustomSharedpreferences(this).getShared("NguoiChoi","ten_dang_nhap");
+        String credit = new CustomSharedpreferences(this).getShared("NguoiChoi","credit");
+
+        tennc.setText(ten_dang_nhap);
+        creditnc.setText(credit);
+
         if(getJson(jsonstring)){
 
          }else {
             Toast.makeText(this, "Get API Nguoi Choi failed", Toast.LENGTH_SHORT).show();
         }
-
 
 
         recyclerView=findViewById(R.id.rcl_goicredit);

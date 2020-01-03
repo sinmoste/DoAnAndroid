@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ailatrieuphu.Class.Adapter.LinhVucAdapter;
+import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
 import com.example.ailatrieuphu.Class.LinhVuc;
 
 import org.json.JSONArray;
@@ -21,10 +23,20 @@ public class Question extends AppCompatActivity {
     RecyclerView mRecyclerview;
     ArrayList<LinhVuc> mLinhVuc;
     LinhVucAdapter mAdapter;
+    TextView tennc,creditnc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+        tennc=findViewById(R.id.txtTennc);
+        creditnc=findViewById(R.id.txtCreditnc);
+
+        String ten_dang_nhap=new CustomSharedpreferences(this).getShared("NguoiChoi","ten_dang_nhap");
+        String credit=new CustomSharedpreferences(this).getShared("NguoiChoi","credit");
+
+        tennc.setText(ten_dang_nhap);
+        creditnc.setText(credit);
 
         Intent mIntent = getIntent();
         String jsonString = mIntent.getStringExtra("message");

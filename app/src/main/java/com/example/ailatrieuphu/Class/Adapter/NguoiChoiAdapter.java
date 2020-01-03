@@ -50,7 +50,36 @@ public class NguoiChoiAdapter extends RecyclerView.Adapter<NguoiChoiAdapter.View
         holder.sodiem.setText(Listnguoichoi.get(position).getDiem_cao_nhat());
     //  holder.anhdaidien.setImageResource(Integer.parseInt(Listnguoichoi.get(position).getHinh_dai_dien().toString()));
         String hinh= Listnguoichoi.get(position).getHinh_dai_dien();
-        holder.stt.setImageResource(R.drawable.ironman);
+        if(position==0){
+            holder.stt.setImageResource(R.drawable.num1);
+        }else if(position==1){
+            holder.stt.setImageResource(R.drawable.num2);
+        }
+        else if(position==2){
+            holder.stt.setImageResource(R.drawable.num3);
+        }
+        else if(position==3){
+            holder.stt.setImageResource(R.drawable.four);
+        }
+        else if(position==4){
+            holder.stt.setImageResource(R.drawable.five);
+        }
+        else if(position==5){
+            holder.stt.setImageResource(R.drawable.six);
+        }
+        else if(position==6){
+            holder.stt.setImageResource(R.drawable.seven);
+        }
+        else if(position==7){
+            holder.stt.setImageResource(R.drawable.eight);
+        }
+        else if(position==8){
+            holder.stt.setImageResource(R.drawable.nine);
+        }
+        else if(position==9){
+            holder.stt.setImageResource(R.drawable.ten);
+        }
+
         if(!hinh.equals("")){
             Picasso.with(context).load("http://10.0.3.2:8080/GameLaravel/public/img/"+hinh).into(holder.anhdaidien);
         }else{

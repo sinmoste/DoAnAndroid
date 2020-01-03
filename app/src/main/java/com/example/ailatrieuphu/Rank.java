@@ -4,19 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ailatrieuphu.Class.Adapter.NguoiChoiAdapter;
-import com.example.ailatrieuphu.Class.LinhVuc;
+import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -26,23 +25,28 @@ public class Rank extends AppCompatActivity {
     public RecyclerView recyclerView;
     public NguoiChoiAdapter adapter;
     public ArrayList<NguoiChoi> listnguoichoi,list2;
+    TextView tennc,creditnc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank);
         Intent intent=getIntent();
+        tennc=findViewById(R.id.txtTennc);
+        creditnc=findViewById(R.id.txtCreditnc);
+        String ten_dang_nhap = new CustomSharedpreferences(this).getShared("NguoiChoi","ten_dang_nhap");
+        String credit = new CustomSharedpreferences(this).getShared("NguoiChoi","credit");
+
+        tennc.setText(ten_dang_nhap);
+        creditnc.setText(credit);
+
         String jsonstring=intent.getStringExtra("NguoiChoi");
-       // Toast.makeText(this,jsonstring,Toast.LENGTH_SHORT).show();
         if(getJson(jsonstring)){
 
         }
         else{
             Toast.makeText(this,"Get API Nguoi Choi failed",Toast.LENGTH_SHORT).show();
         }
-//        int i=listnguoichoi.size();
-//        String s=String.valueOf(i);
-//        Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
         sapxep();
         laytop10();
         recyclerView=findViewById(R.id.rcl_rank);

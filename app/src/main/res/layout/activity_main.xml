@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/ic_no_avatar" />
 
     <TextView
-        android:id="@+id/txtTenng"
+        android:id="@+id/txtTennc"
         android:layout_width="0dp"
         android:layout_height="37dp"
         android:layout_marginStart="16dp"
@@ -52,7 +52,7 @@
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imgKimCuong"
-        app:layout_constraintTop_toBottomOf="@+id/txtTenng" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTennc" />
 
     <ImageView
         android:id="@+id/imgKimCuong"
@@ -62,7 +62,7 @@
         android:layout_marginTop="12dp"
         android:paddingLeft="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTenng"
+        app:layout_constraintTop_toBottomOf="@+id/txtTennc"
         app:srcCompat="@drawable/diamondgold2" />
 
     <Button

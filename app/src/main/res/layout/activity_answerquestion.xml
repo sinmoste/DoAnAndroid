@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/diamond" />
 
     <TextView
-        android:id="@+id/txtCreditt"
+        android:id="@+id/txtCreditnc"
         android:layout_width="100dp"
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtTenng"
+        android:id="@+id/txtTennc"
         android:layout_width="226dp"
         android:layout_height="30dp"
         android:layout_marginStart="15dp"
@@ -256,7 +256,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="36dp"
-        app:layout_constraintEnd_toEndOf="@+id/txtTenng"
+        app:layout_constraintEnd_toEndOf="@+id/txtTennc"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_favorite_heart_24dp" />
 
@@ -269,7 +269,7 @@
         android:text="x5"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/txtTenng"
+        app:layout_constraintEnd_toEndOf="@+id/txtTennc"
         app:layout_constraintTop_toTopOf="parent" />
 
 

@@ -60,10 +60,10 @@ public class Answerquestion extends AppCompatActivity {
         jsonString = mIntent.getStringExtra("message");
 
         txtLife=findViewById(R.id.txtLife);
-        txtTen = findViewById(R.id.txtTenng);
-        txtCredit=findViewById(R.id.txtCreditt);
+        txtTen = findViewById(R.id.txtTennc);
+        txtCredit=findViewById(R.id.txtCreditnc);
 
-        txtTen.setText(new CustomSharedpreferences(this).getShared("NguoiChoi","ten_nguoi_choi"));
+        txtTen.setText(new CustomSharedpreferences(this).getShared("NguoiChoi","ten_dang_nhap"));
         txtCredit.setText(new CustomSharedpreferences(this).getShared("NguoiChoi","credit"));
         txtLife.setText("x"+life);
 
