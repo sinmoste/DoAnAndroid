@@ -116,6 +116,7 @@ public class Answerquestion extends AppCompatActivity {
                case R.id.btn_a:
                    if ("A".equals(mCauHoi.get(vitri).getDapAn())) {
                        diem=diem+(500*(Integer.parseInt(txtTime.getText().toString())));
+                       mChiTiet.add(new ChiTietLuotChoi(position,"A",diem));
                        return true;
                    }
                    mChiTiet.add(new ChiTietLuotChoi(position,"A",diem));
@@ -123,6 +124,7 @@ public class Answerquestion extends AppCompatActivity {
                case R.id.btn_b:
                    if ("B".equals(mCauHoi.get(vitri).getDapAn())) {
                        diem=diem+(500*(Integer.parseInt(txtTime.getText().toString())));
+                       mChiTiet.add(new ChiTietLuotChoi(position,"A",diem));
                        return true;
                    }
                    mChiTiet.add(new ChiTietLuotChoi(position,"B",diem));
@@ -130,7 +132,7 @@ public class Answerquestion extends AppCompatActivity {
                case R.id.btn_c:
                    if ("C".equals(mCauHoi.get(vitri).getDapAn())) {
                        diem=diem+(500*(Integer.parseInt(txtTime.getText().toString())));
-
+                       mChiTiet.add(new ChiTietLuotChoi(position,"A",diem));
                        return true;
                    }
                    mChiTiet.add(new ChiTietLuotChoi(position,"C",diem));
@@ -138,12 +140,11 @@ public class Answerquestion extends AppCompatActivity {
                case R.id.btn_d:
                    if ("D".equals(mCauHoi.get(vitri).getDapAn())) {
                        diem=diem+(500*(Integer.parseInt(txtTime.getText().toString())));
+                       mChiTiet.add(new ChiTietLuotChoi(position,"A",diem));
                        return true;
                    }
                    mChiTiet.add(new ChiTietLuotChoi(position,"D",diem));
                    break;
-               default:
-                   txtDiem.setText(diem+"");
            }
            life--;
            txtLife.setText("x"+life);
@@ -159,8 +160,13 @@ public class Answerquestion extends AppCompatActivity {
 
         try {
             if(life!=0) {
+                txtDiem.setText(diem+"");
+                txtLife.setText("x"+life);
                 loadQuestion();
             }else{
+                btnA.setClickable(false);
+                txtDiem.setText(diem+"");
+                txtLife.setText("x"+life);
                 mCountdown.cancel();
                 Map<String,String> map = new HashMap<>();
                 map.put("nguoi_choi_id",new CustomSharedpreferences(this).getShared("NguoiChoi","id"));
@@ -295,11 +301,7 @@ public class Answerquestion extends AppCompatActivity {
                 map.put("nguoi_choi_id",new CustomSharedpreferences(Answerquestion.this).getShared("NguoiChoi","id"));
                 map.put("so_cau",Integer.toString(socaudung++));
                 map.put("diem",Integer.toString(diem));
-                new CustomDialog(Answerquestion.this).showDialogandPostAPI("Hết giờ rồi",
-                        "Số điểm của bạn là: "+diem+"\n"+"Nhấn OK để kết thúc",
-                        map,
-                        URLl.url_them_luot_choi,
-                        mChiTiet);
+                new ThemCauHoiAsynctask(Answerquestion.this).execute(mChiTiet);
             }
         }.start();
     }

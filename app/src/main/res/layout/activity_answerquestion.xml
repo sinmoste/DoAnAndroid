@@ -46,12 +46,12 @@
 
     <TextView
         android:id="@+id/txtDiem"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="10dp"
-        android:text="Điểm "
+        android:text="0"
         android:textColor="@color/colorAccent"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
