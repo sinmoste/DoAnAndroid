@@ -39,19 +39,20 @@
         android:layout_marginTop="15dp"
         android:background="@android:color/holo_blue_dark"
         android:text="khiem"
-        android:textSize="18sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
         android:id="@+id/txtDiem"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="10dp"
-        android:text="Điểm "
+        android:text="0"
         android:textColor="@color/colorAccent"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"

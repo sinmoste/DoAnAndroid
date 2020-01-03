@@ -1,8 +1,7 @@
 package com.example.ailatrieuphu;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -11,10 +10,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.ailatrieuphu.Class.CauHoi;
 import com.example.ailatrieuphu.Class.ChiTietLuotChoi;
 import com.example.ailatrieuphu.Class.Custom.CustomDialog;
 import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
+import com.example.ailatrieuphu.Class.ThemCauHoiAsynctask;
 import com.example.ailatrieuphu.Class.URLl;
 
 import org.json.JSONArray;
@@ -34,6 +36,7 @@ public class Answerquestion extends AppCompatActivity {
     Button tgDoiCH,tg50,tgKhanGia,tgGoiDien,tgMuaCH; //tro giup theo thu tu trai -> phai
     private ArrayList<CauHoi> mCauHoi;
     String jsonString,dap_an;
+
     int position,diem,life,socaudung;
 
     ProgressBar mPg;
@@ -112,32 +115,36 @@ public class Answerquestion extends AppCompatActivity {
            switch (view.getId()) {
                case R.id.btn_a:
                    if ("A".equals(mCauHoi.get(vitri).getDapAn())) {
-                       diem++;
+                       diem=diem+(500*(Integer.parseInt(txtTime.getText().toString())));
+                       mChiTiet.add(new ChiTietLuotChoi(position,"A",diem));
                        return true;
                    }
                    mChiTiet.add(new ChiTietLuotChoi(position,"A",diem));
                    break;
                case R.id.btn_b:
                    if ("B".equals(mCauHoi.get(vitri).getDapAn())) {
-                       diem++;
+                       diem=diem+(500*(Integer.parseInt(txtTime.getText().toString())));
+                       mChiTiet.add(new ChiTietLuotChoi(position,"A",diem));
                        return true;
                    }
                    mChiTiet.add(new ChiTietLuotChoi(position,"B",diem));
                    break;
                case R.id.btn_c:
                    if ("C".equals(mCauHoi.get(vitri).getDapAn())) {
-                       diem++;
-
+                       diem=diem+(500*(Integer.parseInt(txtTime.getText().toString())));
+                       mChiTiet.add(new ChiTietLuotChoi(position,"A",diem));
                        return true;
                    }
                    mChiTiet.add(new ChiTietLuotChoi(position,"C",diem));
                    break;
                case R.id.btn_d:
                    if ("D".equals(mCauHoi.get(vitri).getDapAn())) {
-                       diem++;
+                       diem=diem+(500*(Integer.parseInt(txtTime.getText().toString())));
+                       mChiTiet.add(new ChiTietLuotChoi(position,"A",diem));
                        return true;
                    }
                    mChiTiet.add(new ChiTietLuotChoi(position,"D",diem));
+                   break;
            }
            life--;
            txtLife.setText("x"+life);
@@ -153,18 +160,25 @@ public class Answerquestion extends AppCompatActivity {
 
         try {
             if(life!=0) {
+                txtDiem.setText(diem+"");
+                txtLife.setText("x"+life);
                 loadQuestion();
             }else{
+                btnA.setClickable(false);
+                txtDiem.setText(diem+"");
+                txtLife.setText("x"+life);
+                mCountdown.cancel();
                 Map<String,String> map = new HashMap<>();
                 map.put("nguoi_choi_id",new CustomSharedpreferences(this).getShared("NguoiChoi","id"));
                 map.put("so_cau",Integer.toString(socaudung++));
                 map.put("diem",Integer.toString(diem));
                 new CustomSharedpreferences(this).addShared("LuotChoi",map);
-                new CustomDialog(Answerquestion.this).showDialogandPostAPI("Hết sinh lực",
-                        "Số điểm của bạn là: "+diem+"\n"+"Nhấn OK để kết thúc",
-                        map,
-                        URLl.url_them_luot_choi,
-                        mChiTiet);
+                new ThemCauHoiAsynctask(this).execute(mChiTiet);
+//                new CustomDialog(Answerquestion.this).showDialogandPostAPI("Hết sinh lực",
+//                        "Số điểm của bạn là: "+diem+"\n"+"Nhấn OK để kết thúc",
+//                        map,
+//                        URLl.url_them_luot_choi,
+//                        mChiTiet);
             }
         }catch (Exception e){
             Toast.makeText(this, "Hết câu!", Toast.LENGTH_SHORT).show();
@@ -287,17 +301,12 @@ public class Answerquestion extends AppCompatActivity {
                 map.put("nguoi_choi_id",new CustomSharedpreferences(Answerquestion.this).getShared("NguoiChoi","id"));
                 map.put("so_cau",Integer.toString(socaudung++));
                 map.put("diem",Integer.toString(diem));
-                new CustomDialog(Answerquestion.this).showDialogandPostAPI("Hết giờ rồi",
-                        "Số điểm của bạn là: "+diem+"\n"+"Nhấn OK để kết thúc",
-                        map,
-                        URLl.url_them_luot_choi,
-                        mChiTiet);
+                new ThemCauHoiAsynctask(Answerquestion.this).execute(mChiTiet);
             }
         }.start();
     }
     public boolean getJson(String jsonString){
         try{
-
             JSONObject data = new JSONObject(jsonString);
             JSONArray jr = data.getJSONArray("data");
 

@@ -3,15 +3,24 @@ package com.example.ailatrieuphu;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Base64;
+import android.util.LruCache;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.Cache;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Network;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.BasicNetwork;
+import com.android.volley.toolbox.DiskBasedCache;
+import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.ailatrieuphu.Class.ChiTietLuotChoi;
+import com.example.ailatrieuphu.Class.Custom.CustomSharedpreferences;
 import com.example.ailatrieuphu.Class.URLl;
 
 import org.json.JSONException;
@@ -102,33 +111,52 @@ public class ReadAPI {
 
             }
         };
+        stringRequest.setRetryPolicy(
+                new DefaultRetryPolicy(
+                        500000,
+                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                )
+        );
         RequestQueue requestQueue= Volley.newRequestQueue(context);
+
         requestQueue.add(stringRequest);
+
+
     }
 
 
-
+    //Them chi tiet luot choi
     public static void PostAPI(final Context context, final Map<String,String> mMap, String duongdan, final ArrayList<ChiTietLuotChoi> mArray)
     {
         StringRequest stringRequest=new StringRequest(Request.Method.POST, duongdan, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                int id=1;
                 try {
                     JSONObject jb = new JSONObject(response);
-                    int id = jb.getInt("id");
-                    for(int i=0;i<mArray.size();i++) {
-                       String cau_hoi_id = String.valueOf(mArray.get(i).getCau_hoi_id());
-                       String phuong_an = mArray.get(i).getPhuong_an();
-                       String diem = String.valueOf(mArray.get(i).getDiem());
-                       Map<String,String> map2 = new HashMap<>();
-                       map2.put("luot_choi_id", String.valueOf(id));
-                       map2.put("cau_hoi_id",cau_hoi_id);
-                       map2.put("phuong_an",phuong_an);
-                       map2.put("diem",diem);
-                       PostAPI(context,map2, URLl.url_them_chi_tiet);
-                    }
+                    id = jb.getInt("id");
+                    int nguoi_choi_id = jb.getInt("nguoi_choi_id");
+                    int diem_cao_nhat = jb.getInt("diem");
+                    Map<String,String > map3 = new HashMap<>();//Cap nhap diem co cao ko
+                    map3.put("nguoi_choi_id", String.valueOf(nguoi_choi_id));
+                    map3.put("diem",String.valueOf(diem_cao_nhat));
+                    new CustomSharedpreferences(context).addShared("LuotChoi",map3);
+                    PostAPI(context,map3,URLl.url_cap_nhat_diem);
                 } catch (JSONException e) {
                     e.printStackTrace();
+                }finally {
+                    for(int i=0;i<mArray.size();i++) {
+                        String cau_hoi_id = String.valueOf(mArray.get(i).getCau_hoi_id());
+                        String phuong_an = mArray.get(i).getPhuong_an();
+                        String diem = String.valueOf(mArray.get(i).getDiem());
+                        Map<String,String> map2 = new HashMap<>();
+                        map2.put("luot_choi_id", String.valueOf(id));
+                        map2.put("cau_hoi_id",cau_hoi_id);
+                        map2.put("phuong_an",phuong_an);
+                        map2.put("diem",diem);
+                        PostAPI(context,map2, URLl.url_them_chi_tiet);
+                    }
                 }
             }
         }, new Response.ErrorListener() {
@@ -163,5 +191,7 @@ public class ReadAPI {
         return Base64.encodeToString(imageBytes, Base64.DEFAULT);
     }
 }
+
+
 
 

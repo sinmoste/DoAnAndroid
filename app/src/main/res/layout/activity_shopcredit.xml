@@ -7,6 +7,7 @@
     android:background="@drawable/home_background"
     android:orientation="vertical"
     tools:context=".shopcredit">
+
     <TextView
         android:id="@+id/txtTennc"
         android:layout_width="226dp"
@@ -16,6 +17,7 @@
         android:background="@android:color/holo_blue_dark"
         android:text="khiem"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

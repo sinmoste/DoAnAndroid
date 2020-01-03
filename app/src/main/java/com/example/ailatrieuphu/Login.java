@@ -24,8 +24,9 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private GoogleApiClient mGoogleApiClient;
     int RC_SIGN_IN=001;
 
-    String urlduongdan="http://192.168.153.2:8080/GameLaravel/public/api/apinguoichoi";
+    //String urlduongdan="http://192.168.153.2:8080/GameLaravel/public/api/apinguoichoi";
    // String urlduongdan="http://192.168.1.253/GameLaravel/public/api/apinguoichoi";
+    String urlduongdan ="http://10.0.3.2:8000/api/apinguoichoi";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,7 +114,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             case R.id.btnSignIn:
                 SigIn();
                 break;
-
         }
 
     }
